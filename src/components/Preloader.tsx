@@ -1,86 +1,48 @@
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { useEffect } from 'react'
 
 export default function Preloader({ onComplete }: { onComplete: () => void }) {
-  const [count, setCount] = useState(0)
-  const [done, setDone] = useState(false)
-  const reduceMotion = useReducedMotion()
-
   useEffect(() => {
-    if (reduceMotion) {
-      setCount(100)
-      const t = setTimeout(() => {
-        setDone(true)
-        onComplete()
-      }, 50)
-      return () => clearTimeout(t)
-    }
-
-    let raf: number
-    const start = performance.now()
-    const duration = 1200
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.floor(eased * 100))
-      if (progress < 1) raf = requestAnimationFrame(tick)
-      else {
-        setCount(100)
-        setTimeout(() => setDone(true), 200)
-        setTimeout(() => onComplete(), 700)
-      }
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [onComplete, reduceMotion])
+    const t = setTimeout(onComplete, 800)
+    return () => clearTimeout(t)
+    // onComplete is intentionally excluded from deps — it's a stable callback
+    // and including it risks re-triggering the timer on every render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
-    <AnimatePresence>
-      {!done ? (
-        <motion.div
-          key="loader"
-          role="status"
-          aria-live="polite"
-          aria-label="Loading"
-          className="fixed inset-0 z-[9999] bg-bg-deep flex items-center justify-center"
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Grid bg */}
-          <div aria-hidden="true" className="absolute inset-0 grid-bg opacity-40" />
+    <div
+      role="status"
+      aria-label="Loading"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 9999,
+        background: '#0A0A0B',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        gap: '1.5rem',
+      }}
+    >
+      {/* Amber logo mark */}
+      <svg width="48" height="48" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" rx="2" stroke="#D4860A" strokeWidth="1.5" />
+        <path d="M8 16L13 11L18 16L24 10" stroke="#D4860A" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="24" cy="10" r="2" fill="#D4860A" />
+      </svg>
 
-          {/* Spotlight */}
-          <div aria-hidden="true" className="absolute inset-0 spotlight-bg" />
-
-          {/* Counter */}
-          <div className="relative z-10 text-center select-none">
-            <motion.div
-              className="font-mono text-[clamp(5rem,20vw,14rem)] font-bold leading-none tabular-nums text-amber-base"
-            >
-              {String(count).padStart(2, '0')}
-            </motion.div>
-            <motion.div
-              className="font-mono text-[10px] tracking-[0.3em] text-text-secondary mt-4 uppercase"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              Initializing
-            </motion.div>
-          </div>
-
-          {/* Thin amber horizontal line */}
-          <div aria-hidden="true" className="absolute bottom-0 left-0 h-px w-full">
-            <motion.div
-              className="h-full bg-amber-base"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: count / 100 }}
-              style={{ transformOrigin: 'left', boxShadow: '0 0 8px rgba(212,134,10,0.8)' }}
-            />
-          </div>
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
+      <span
+        style={{
+          fontFamily: 'monospace',
+          fontSize: '10px',
+          letterSpacing: '0.3em',
+          color: '#6B7280',
+          textTransform: 'uppercase',
+        }}
+      >
+        Initializing
+      </span>
+    </div>
   )
 }

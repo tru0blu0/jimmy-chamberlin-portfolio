@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import Preloader from './components/Preloader'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
@@ -26,37 +26,33 @@ export default function App() {
     return () => window.removeEventListener('mousemove', move)
   }, [])
 
+  if (!loaded) {
+    return <Preloader onComplete={() => setLoaded(true)} />
+  }
+
   return (
     <>
-      <AnimatePresence mode="wait">
-        {!loaded && <Preloader key="preloader" onComplete={() => setLoaded(true)} />}
-      </AnimatePresence>
+      <a href="#main" className="skip-link">Skip to content</a>
 
-      {loaded && (
-        <>
-          <a href="#main" className="skip-link">Skip to content</a>
+      {/* Scroll progress */}
+      <motion.div className="progress-bar" style={{ scaleX }} aria-hidden="true" />
 
-          {/* Scroll progress */}
-          <motion.div className="progress-bar" style={{ scaleX }} aria-hidden="true" />
+      {/* Cursor spotlight */}
+      <div className="cursor-light" aria-hidden="true" />
 
-          {/* Cursor spotlight */}
-          <div className="cursor-light" aria-hidden="true" />
+      <Nav />
 
-          <Nav />
+      <main id="main" tabIndex={-1}>
+        <Hero />
+        <Marquee />
+        <Metrics />
+        <CaseStudies />
+        <Approach />
+        <About />
+        <Contact />
+      </main>
 
-          <main id="main" tabIndex={-1}>
-            <Hero />
-            <Marquee />
-            <Metrics />
-            <CaseStudies />
-            <Approach />
-            <About />
-            <Contact />
-          </main>
-
-          <Footer />
-        </>
-      )}
+      <Footer />
     </>
   )
 }
