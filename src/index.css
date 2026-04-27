@@ -1,0 +1,91 @@
+@import '@fontsource/syne/400.css';
+@import '@fontsource/syne/700.css';
+@import '@fontsource/syne/800.css';
+@import '@fontsource/dm-sans/300.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/jetbrains-mono/400.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0A0B0F;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #F0F2F7;
+    background-color: #0A0B0F;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(212, 134, 10, 0.3);
+    color: #FFD580;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0A0B0F; }
+  ::-webkit-scrollbar-thumb { background: #D4860A; border-radius: 2px; }
+}
+
+@layer components {
+  .nav-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.15em] text-text-secondary;
+  }
+
+  .section-number {
+    @apply font-mono text-[11px] tracking-[0.1em] text-amber-base;
+  }
+
+  .card-base {
+    @apply bg-bg-surface border border-white/[0.06] rounded-lg shadow-card;
+    background: linear-gradient(135deg, #1A1D26 0%, #111318 60%);
+  }
+
+  .amber-rule {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-amber-base/40 to-transparent;
+  }
+
+  .spotlight-bg {
+    background: radial-gradient(ellipse 70% 50% at 50% -5%, rgba(212,134,10,0.18) 0%, transparent 70%);
+  }
+
+  .cursor-light {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(circle 500px at var(--mx, 50%) var(--my, 50%), rgba(212,134,10,0.06), transparent 80%);
+    transition: background 0.1s ease;
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #D4860A, #F5A623, #FFD580);
+    z-index: 1000;
+    transform-origin: left;
+    box-shadow: 0 0 8px rgba(212,134,10,0.6);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .grid-bg {
+    background-image: linear-gradient(rgba(240,242,247,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(240,242,247,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+}
