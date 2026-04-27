@@ -82,7 +82,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
                     <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-text uppercase mb-3">
                       The Challenge
                     </h4>
-                    <p className="text-text-secondary leading-relaxed">{study.challenge}</p>
+                    <p className="text-text-secondary leading-relaxed">{study.problem}</p>
                   </div>
                   <div>
                     <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-text uppercase mb-3">

@@ -72,10 +72,12 @@ export const data = {
     {
       id: 'logistics',
       domain: 'LOGISTICS',
+      year: '2015–2018',
       headline: 'Rebuilt fulfillment pipeline',
       tagline: 'Reduced order-to-ship time by 62% in 6 months',
       problem: 'A regional 3PL was hemorrhaging clients due to 4–5 day order-to-ship cycles. Manual pick-ticket processes, no real-time inventory visibility, and three disconnected WMS platforms made every day a triage exercise.',
       approach: 'Mapped every handoff in the fulfillment flow. Identified 11 unnecessary approval steps. Consolidated to a single WMS, built live dashboards for floor supervisors, and implemented wave-picking sequences aligned to carrier cut-off times.',
+      tags: ['WMS Consolidation', 'Wave Picking', 'KPI Dashboards', '3PL', 'Process Mapping'],
       results: [
         { metric: '62%', label: 'Reduction in order-to-ship time' },
         { metric: '94%', label: 'On-time delivery rate (up from 71%)' },
@@ -86,10 +88,12 @@ export const data = {
     {
       id: 'restaurant',
       domain: 'RESTAURANT / QSR',
+      year: '2012–2015',
       headline: 'Rebuilt multi-unit ops model',
       tagline: 'Turned 3 underperforming locations into top-10 systemwide',
       problem: 'Three QSR franchise locations in the bottom quartile systemwide — high turnover, labor cost at 36% of revenue, and food waste running 2x the brand standard. Each GM operated independently with no shared systems.',
       approach: 'Standardized labor scheduling templates, implemented a shared COGS tracking sheet across all three units, rebuilt onboarding from a 90-minute verbal rundown to a documented 5-day program. Created a weekly ops cadence across GMs.',
+      tags: ['Labor Scheduling', 'COGS Tracking', 'Onboarding Systems', 'Multi-Unit Ops', 'QSR'],
       results: [
         { metric: '36%→27%', label: 'Labor cost as % of revenue' },
         { metric: '48%', label: 'Reduction in management turnover' },
@@ -100,10 +104,12 @@ export const data = {
     {
       id: 'legal',
       domain: 'LEGAL OPERATIONS',
+      year: '2010–2012',
       headline: 'Rebuilt contract & compliance workflow',
       tagline: 'Cut contract turnaround from 14 days to 3',
       problem: 'A mid-size professional services firm had a legal ops function that was a bottleneck. Contracts sat in email chains for weeks, approval routing was ad hoc, and audit prep required weeks of manual document assembly.',
       approach: 'Mapped the contract lifecycle end-to-end, identified that 80% of delays happened in two steps. Implemented a CLM tool, built standard templates for 90% of contract types, and automated approval routing for routine renewals.',
+      tags: ['CLM Implementation', 'Contract Templates', 'Approval Routing', 'Legal Ops', 'Compliance'],
       results: [
         { metric: '14d → 3d', label: 'Average contract turnaround' },
         { metric: '80%', label: 'Reduction in legal team review time on routine contracts' },
