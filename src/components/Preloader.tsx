@@ -1,12 +1,21 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 
 export default function Preloader({ onComplete }: { onComplete: () => void }) {
   const [count, setCount] = useState(0)
   const [done, setDone] = useState(false)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
-    // Fast counter: 0 → 100 in ~1.2s
+    if (reduceMotion) {
+      setCount(100)
+      const t = setTimeout(() => {
+        setDone(true)
+        onComplete()
+      }, 50)
+      return () => clearTimeout(t)
+    }
+
     let raf: number
     const start = performance.now()
     const duration = 1200
@@ -24,28 +33,30 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [onComplete])
+  }, [onComplete, reduceMotion])
 
   return (
     <AnimatePresence>
       {!done ? (
         <motion.div
           key="loader"
+          role="status"
+          aria-live="polite"
+          aria-label="Loading"
           className="fixed inset-0 z-[9999] bg-bg-deep flex items-center justify-center"
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Grid bg */}
-          <div className="absolute inset-0 grid-bg opacity-40" />
+          <div aria-hidden="true" className="absolute inset-0 grid-bg opacity-40" />
 
           {/* Spotlight */}
-          <div className="absolute inset-0 spotlight-bg" />
+          <div aria-hidden="true" className="absolute inset-0 spotlight-bg" />
 
           {/* Counter */}
           <div className="relative z-10 text-center select-none">
             <motion.div
-              className="font-mono text-[clamp(5rem,20vw,14rem)] font-bold leading-none tabular-nums"
-              style={{ color: '#D4860A' }}
+              className="font-mono text-[clamp(5rem,20vw,14rem)] font-bold leading-none tabular-nums text-amber-base"
             >
               {String(count).padStart(2, '0')}
             </motion.div>
@@ -60,7 +71,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           </div>
 
           {/* Thin amber horizontal line */}
-          <div className="absolute bottom-0 left-0 h-px w-full">
+          <div aria-hidden="true" className="absolute bottom-0 left-0 h-px w-full">
             <motion.div
               className="h-full bg-amber-base"
               initial={{ scaleX: 0 }}

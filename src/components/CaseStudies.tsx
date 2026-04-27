@@ -10,6 +10,8 @@ function CaseCard({ study, index, isOpen, onClick }: {
 }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10%' })
+  const toggleId = `case-${study.id}-toggle`
+  const panelId = `case-${study.id}-body`
 
   return (
     <motion.div
@@ -21,7 +23,10 @@ function CaseCard({ study, index, isOpen, onClick }: {
     >
       {/* Header row — always visible */}
       <button
+        id={toggleId}
         onClick={onClick}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
         className="w-full flex items-start gap-6 py-8 md:py-10 group text-left"
       >
         {/* Number */}
@@ -30,7 +35,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
         </span>
 
         {/* Domain tag */}
-        <span className="font-mono text-[9px] tracking-[0.12em] uppercase px-3 py-1.5 border border-amber-base/30 text-amber-base rounded-sm shrink-0 hidden md:inline-block mt-0.5">
+        <span className="font-mono text-[9px] tracking-[0.12em] uppercase px-3 py-1.5 border border-amber-base/30 text-amber-text rounded-sm shrink-0 hidden md:inline-block mt-0.5">
           {study.domain}
         </span>
 
@@ -48,7 +53,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
         <span className="font-mono text-[11px] text-text-muted shrink-0 hidden md:block">{study.year}</span>
 
         {/* Toggle icon */}
-        <div className="shrink-0 w-8 h-8 border border-white/[0.1] rounded-sm flex items-center justify-center text-text-secondary group-hover:border-amber-base/40 group-hover:text-amber-base transition-all mt-0.5">
+        <div aria-hidden="true" className="shrink-0 w-8 h-8 border border-white/[0.1] rounded-sm flex items-center justify-center text-text-secondary group-hover:border-amber-base/40 group-hover:text-amber-text transition-all mt-0.5">
           <motion.span className="font-mono text-lg leading-none" animate={{ rotate: isOpen ? 45 : 0 }}>
             +
           </motion.span>
@@ -56,10 +61,13 @@ function CaseCard({ study, index, isOpen, onClick }: {
       </button>
 
       {/* Expanded body */}
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             key="body"
+            id={panelId}
+            role="region"
+            aria-labelledby={toggleId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -71,13 +79,13 @@ function CaseCard({ study, index, isOpen, onClick }: {
                 {/* Left: narrative */}
                 <div className="md:col-span-2 space-y-6">
                   <div>
-                    <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-base uppercase mb-3">
+                    <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-text uppercase mb-3">
                       The Challenge
                     </h4>
                     <p className="text-text-secondary leading-relaxed">{study.challenge}</p>
                   </div>
                   <div>
-                    <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-base uppercase mb-3">
+                    <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-text uppercase mb-3">
                       The Approach
                     </h4>
                     <p className="text-text-secondary leading-relaxed">{study.approach}</p>
@@ -127,9 +135,10 @@ export default function CaseStudies() {
   const inView = useInView(ref, { once: true, margin: '-10%' })
 
   return (
-    <section id="work" ref={ref} className="py-28 md:py-36 relative">
+    <section id="work" ref={ref} aria-labelledby="case-studies-heading" className="py-28 md:py-36 relative">
       {/* Side light */}
       <div
+        aria-hidden="true"
         className="absolute left-0 top-1/3 w-[30vw] h-[40vw] opacity-[0.04] pointer-events-none"
         style={{
           background: 'radial-gradient(circle, #F5A623 0%, transparent 70%)',
@@ -148,9 +157,9 @@ export default function CaseStudies() {
           <div>
             <div className="flex items-center gap-4 mb-4">
               <span className="section-number">03 /</span>
-              <div className="h-px w-12 bg-amber-base/40" />
+              <div aria-hidden="true" className="h-px w-12 bg-amber-base/40" />
             </div>
-            <h2 className="text-display-lg font-display font-extrabold text-text-primary leading-none">
+            <h2 id="case-studies-heading" className="text-display-lg font-display font-extrabold text-text-primary leading-none">
               Case Studies
             </h2>
           </div>
@@ -160,7 +169,7 @@ export default function CaseStudies() {
         </motion.div>
 
         {/* Case list */}
-        <div className="amber-rule mb-0" />
+        <div aria-hidden="true" className="amber-rule mb-0" />
         {data.caseStudies.map((study, i) => (
           <CaseCard
             key={study.id}
