@@ -1,14 +1,19 @@
 import { useRef, useEffect, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { data } from '../data'
 
 function Counter({ to, prefix = '', suffix = '' }: { to: number; prefix?: string; suffix?: string }) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-20%' })
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     if (!inView) return
+    if (reduceMotion) {
+      setCount(to)
+      return
+    }
     let raf: number
     const start = performance.now()
     const duration = 1400
@@ -22,7 +27,7 @@ function Counter({ to, prefix = '', suffix = '' }: { to: number; prefix?: string
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [inView, to])
+  }, [inView, to, reduceMotion])
 
   return (
     <span ref={ref} className="tabular-nums">
@@ -36,8 +41,9 @@ export default function Metrics() {
   const inView = useInView(ref, { once: true, margin: '-10%' })
 
   return (
-    <section id="metrics" ref={ref} className="py-28 md:py-36 relative">
+    <section id="metrics" ref={ref} aria-labelledby="metrics-heading" className="py-28 md:py-36 relative">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+        <h2 id="metrics-heading" className="sr-only">Measurable Impact</h2>
         {/* Section header */}
         <motion.div
           className="flex items-center gap-4 mb-16"
@@ -46,8 +52,8 @@ export default function Metrics() {
           transition={{ duration: 0.6 }}
         >
           <span className="section-number">02 /</span>
-          <div className="h-px flex-1 max-w-[60px] bg-amber-base/40" />
-          <span className="font-display font-bold text-[11px] uppercase tracking-[0.2em] text-text-secondary">
+          <div aria-hidden="true" className="h-px flex-1 max-w-[60px] bg-amber-base/40" />
+          <span aria-hidden="true" className="font-display font-bold text-[11px] uppercase tracking-[0.2em] text-text-secondary">
             Measurable Impact
           </span>
         </motion.div>

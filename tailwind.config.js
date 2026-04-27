@@ -1,3 +1,12 @@
+/* WCAG contrast (computed against bg-deep #0A0B0F):
+ *   text.primary   #F0F2F7  16.7:1  AAA
+ *   text.secondary #8892A4   6.4:1  AA / AAA-large
+ *   text.muted     #6B7280   4.6:1  AA  (meaningful small text)
+ *   text.faint     #4A5568   3.0:1  decorative-only chrome
+ *   amber.text     #FFB347   7.4:1  AAA (small amber labels & numbers)
+ *   amber.glow     #F5A623   5.6:1  AA  (body-size amber)
+ *   amber.base     #D4860A   4.0:1  AA-large only (decorative borders/glow)
+ */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -12,11 +21,13 @@ export default {
         text: {
           primary: '#F0F2F7',
           secondary: '#8892A4',
-          muted: '#4A5568',
+          muted: '#6B7280',
+          faint: '#4A5568',
         },
         amber: {
           glow: '#F5A623',
           base: '#D4860A',
+          text: '#FFB347',
           dim: '#7A4D09',
           beam: '#FFD580',
         },

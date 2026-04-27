@@ -12,12 +12,12 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-4">
           <a href={data.linkedin} target="_blank" rel="noopener noreferrer"
-             className="font-mono text-[10px] tracking-[0.12em] uppercase text-text-muted hover:text-amber-base transition-colors">
+             className="font-mono text-[10px] tracking-[0.12em] uppercase text-text-muted hover:text-amber-text transition-colors">
             LinkedIn
           </a>
-          <span className="text-text-muted">·</span>
+          <span aria-hidden="true" className="text-text-muted">·</span>
           <a href={`mailto:${data.email}`}
-             className="font-mono text-[10px] tracking-[0.12em] uppercase text-text-muted hover:text-amber-base transition-colors">
+             className="font-mono text-[10px] tracking-[0.12em] uppercase text-text-muted hover:text-amber-text transition-colors">
             Email
           </a>
         </div>

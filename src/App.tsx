@@ -34,15 +34,17 @@ export default function App() {
 
       {loaded && (
         <>
+          <a href="#main" className="skip-link">Skip to content</a>
+
           {/* Scroll progress */}
-          <motion.div className="progress-bar" style={{ scaleX }} />
+          <motion.div className="progress-bar" style={{ scaleX }} aria-hidden="true" />
 
           {/* Cursor spotlight */}
-          <div className="cursor-light" aria-hidden />
+          <div className="cursor-light" aria-hidden="true" />
 
           <Nav />
 
-          <main>
+          <main id="main" tabIndex={-1}>
             <Hero />
             <Marquee />
             <Metrics />

@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { data } from '../data'
 
 const container = {
@@ -13,9 +13,12 @@ const line = {
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
+  const reduceMotion = useReducedMotion()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  const yMotion = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
+  const opacityMotion = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  const y = reduceMotion ? '0%' : yMotion
+  const opacity = reduceMotion ? 1 : opacityMotion
 
   const words1 = data.tagline[0].split(' ')
   const words2 = data.tagline[1].split(' ')
@@ -23,9 +26,10 @@ export default function Hero() {
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
       {/* Layered backgrounds */}
-      <div className="absolute inset-0 grid-bg" />
-      <div className="absolute inset-0 spotlight-bg" />
+      <div className="absolute inset-0 grid-bg" aria-hidden="true" />
+      <div className="absolute inset-0 spotlight-bg" aria-hidden="true" />
       <div
+        aria-hidden="true"
         className="absolute top-0 right-0 w-[45vw] h-[45vw] rounded-full opacity-[0.07]"
         style={{
           background: 'radial-gradient(circle, #F5A623 0%, transparent 70%)',
@@ -42,7 +46,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="h-px w-8 bg-amber-base" />
+          <div className="h-px w-8 bg-amber-base" aria-hidden="true" />
           <span className="section-number">{data.subtitle}</span>
         </motion.div>
 
@@ -62,9 +66,8 @@ export default function Hero() {
           {words2.map((w, i) => (
             <span key={i} className="overflow-hidden inline-block mr-[0.18em]">
               <motion.span
-                className="inline-block"
+                className={`inline-block ${i === words2.length - 1 ? 'text-amber-base' : ''}`}
                 variants={line}
-                style={{ color: i === words2.length - 1 ? '#D4860A' : undefined }}
               >
                 {w}
               </motion.span>
@@ -92,16 +95,16 @@ export default function Hero() {
           >
             <a
               href="#work"
-              className="group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-7 py-4 rounded-sm transition-all duration-200 shadow-amber-glow hover:shadow-amber-glow"
+              className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-7 py-4 rounded-sm transition-all duration-200 shadow-amber-glow hover:shadow-amber-glow"
             >
               VIEW CASE STUDIES
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
+              <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <a
               href="#contact"
               className="inline-flex items-center gap-3 text-text-secondary hover:text-text-primary text-sm tracking-wide transition-colors"
             >
-              <span className="h-px w-6 bg-text-muted" />
+              <span aria-hidden="true" className="h-px w-6 bg-text-faint" />
               Let's talk operations
             </a>
           </motion.div>
@@ -119,7 +122,7 @@ export default function Hero() {
               key={exp.domain}
               className="flex items-center gap-2 px-4 py-2 border border-white/[0.08] rounded-full text-text-secondary text-[12px] hover:border-amber-base/30 hover:text-text-primary transition-all cursor-default"
             >
-              <span className="text-amber-base text-xs">{exp.icon}</span>
+              <span aria-hidden="true" className="text-amber-text text-xs">{exp.icon}</span>
               {exp.domain}
             </div>
           ))}
@@ -127,6 +130,7 @@ export default function Hero() {
 
         {/* Scroll hint */}
         <motion.div
+          aria-hidden="true"
           className="absolute bottom-8 left-6 md:left-10 lg:left-16 flex items-center gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -135,11 +139,11 @@ export default function Hero() {
           <div className="flex flex-col gap-1">
             <motion.div
               className="w-px h-12 bg-gradient-to-b from-amber-base to-transparent mx-auto"
-              animate={{ scaleY: [1, 0.5, 1], opacity: [1, 0.4, 1] }}
+              animate={reduceMotion ? {} : { scaleY: [1, 0.5, 1], opacity: [1, 0.4, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
           </div>
-          <span className="font-mono text-[9px] tracking-[0.2em] text-text-muted uppercase rotate-90 origin-left ml-2">
+          <span className="font-mono text-[9px] tracking-[0.2em] text-text-faint uppercase rotate-90 origin-left ml-2">
             Scroll
           </span>
         </motion.div>

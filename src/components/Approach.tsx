@@ -7,10 +7,11 @@ export default function Approach() {
   const inView = useInView(ref, { once: true, margin: '-10%' })
 
   return (
-    <section id="approach" ref={ref} className="py-28 md:py-36 bg-bg-surface relative overflow-hidden">
+    <section id="approach" ref={ref} aria-labelledby="approach-heading" className="py-28 md:py-36 bg-bg-surface relative overflow-hidden">
       {/* Subtle grid overlay */}
-      <div className="absolute inset-0 grid-bg opacity-50" />
+      <div aria-hidden="true" className="absolute inset-0 grid-bg opacity-50" />
       <div
+        aria-hidden="true"
         className="absolute right-0 top-0 w-[50vw] h-[60vh] opacity-[0.05] pointer-events-none"
         style={{
           background: 'radial-gradient(circle, #F5A623 0%, transparent 70%)',
@@ -28,9 +29,9 @@ export default function Approach() {
         >
           <div className="flex items-center gap-4 mb-4">
             <span className="section-number">04 /</span>
-            <div className="h-px w-12 bg-amber-base/40" />
+            <div aria-hidden="true" className="h-px w-12 bg-amber-base/40" />
           </div>
-          <h2 className="text-display-lg font-display font-extrabold text-text-primary leading-none">
+          <h2 id="approach-heading" className="text-display-lg font-display font-extrabold text-text-primary leading-none">
             How I Work
           </h2>
         </motion.div>

@@ -28,14 +28,38 @@
   }
 
   ::selection {
-    background-color: rgba(212, 134, 10, 0.3);
-    color: #FFD580;
+    background-color: rgba(212, 134, 10, 0.45);
+    color: #FFFFFF;
   }
 
   /* Scrollbar */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #0A0B0F; }
-  ::-webkit-scrollbar-thumb { background: #D4860A; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: #FFB347; border-radius: 2px; }
+
+  /* Keyboard focus ring — visible on every interactive element */
+  *:focus { outline: none; }
+  *:focus-visible {
+    outline: 2px solid #FFB347;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* On amber CTA fills, swap to a dark inner ring so the focus stays visible */
+  .amber-cta:focus-visible {
+    outline-color: #0A0B0F;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #FFB347;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
@@ -44,7 +68,7 @@
   }
 
   .section-number {
-    @apply font-mono text-[11px] tracking-[0.1em] text-amber-base;
+    @apply font-mono text-[11px] tracking-[0.1em] text-amber-text;
   }
 
   .card-base {
@@ -68,6 +92,9 @@
     background: radial-gradient(circle 500px at var(--mx, 50%) var(--my, 50%), rgba(212,134,10,0.06), transparent 80%);
     transition: background 0.1s ease;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-light { display: none; }
+  }
 
   .progress-bar {
     position: fixed;
@@ -78,6 +105,16 @@
     z-index: 1000;
     transform-origin: left;
     box-shadow: 0 0 8px rgba(212,134,10,0.6);
+  }
+
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    @apply not-sr-only fixed top-3 left-3 z-[100] px-4 py-2 bg-amber-text text-bg-deep font-mono text-xs rounded-sm;
+    outline: 2px solid #0A0B0F;
+    outline-offset: 2px;
   }
 }
 

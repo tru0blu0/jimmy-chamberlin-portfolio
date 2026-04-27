@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { data } from '../data'
 
@@ -13,12 +13,31 @@ const navItems = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
   }, [])
+
+  // Mobile menu: focus management + Escape to close
+  useEffect(() => {
+    if (!menuOpen) return
+    const previouslyFocused = document.activeElement as HTMLElement | null
+    const firstLink = dialogRef.current?.querySelector<HTMLAnchorElement>('a')
+    firstLink?.focus()
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      previouslyFocused?.focus?.()
+    }
+  }, [menuOpen])
 
   return (
     <>
@@ -31,21 +50,21 @@ export default function Nav() {
         transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         {/* Logo mark */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a href="#" className="flex items-center gap-3 group" aria-label={`${data.name} — home`}>
           <div className="w-8 h-8 relative">
-            <svg viewBox="0 0 32 32" fill="none" className="w-full h-full">
+            <svg viewBox="0 0 32 32" fill="none" className="w-full h-full" aria-hidden="true" focusable="false">
               <rect x="2" y="2" width="28" height="28" rx="2" stroke="#D4860A" strokeWidth="1.5" />
               <path d="M8 16L13 11L18 16L24 10" stroke="#D4860A" strokeWidth="1.5" strokeLinecap="round" />
               <circle cx="24" cy="10" r="2" fill="#D4860A" />
             </svg>
           </div>
-          <span className="font-mono text-[11px] tracking-[0.12em] text-text-secondary group-hover:text-amber-base transition-colors">
+          <span aria-hidden="true" className="font-mono text-[11px] tracking-[0.12em] text-text-secondary group-hover:text-amber-text transition-colors">
             JC
           </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -53,7 +72,7 @@ export default function Nav() {
               className="nav-label hover:text-text-primary transition-colors relative group"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-amber-base group-hover:w-full transition-all duration-300" />
+              <span aria-hidden="true" className="absolute -bottom-1 left-0 h-px w-0 bg-amber-base group-hover:w-full transition-all duration-300" />
             </a>
           ))}
         </nav>
@@ -62,7 +81,7 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-5">
           {data.available && (
             <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-success" />
               </span>
@@ -71,7 +90,7 @@ export default function Nav() {
           )}
           <a
             href="#contact"
-            className="font-mono text-[10px] tracking-[0.12em] uppercase px-4 py-2 border border-amber-base/40 text-amber-glow hover:bg-amber-base/10 hover:border-amber-base transition-all duration-200 rounded-sm"
+            className="font-mono text-[10px] tracking-[0.12em] uppercase px-4 py-2 border border-amber-base/40 text-amber-text hover:bg-amber-base/10 hover:border-amber-base transition-all duration-200 rounded-sm"
           >
             HIRE ME
           </a>
@@ -79,13 +98,16 @@ export default function Nav() {
 
         {/* Mobile menu toggle */}
         <button
+          ref={toggleRef}
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
-          <motion.span className="block w-6 h-px bg-text-primary" animate={menuOpen ? { rotate: 45, y: 4 } : {}} />
-          <motion.span className="block w-6 h-px bg-text-primary" animate={menuOpen ? { opacity: 0 } : {}} />
-          <motion.span className="block w-6 h-px bg-text-primary" animate={menuOpen ? { rotate: -45, y: -4 } : {}} />
+          <motion.span aria-hidden="true" className="block w-6 h-px bg-text-primary" animate={menuOpen ? { rotate: 45, y: 4 } : {}} />
+          <motion.span aria-hidden="true" className="block w-6 h-px bg-text-primary" animate={menuOpen ? { opacity: 0 } : {}} />
+          <motion.span aria-hidden="true" className="block w-6 h-px bg-text-primary" animate={menuOpen ? { rotate: -45, y: -4 } : {}} />
         </button>
       </motion.header>
 
@@ -93,6 +115,11 @@ export default function Nav() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            ref={dialogRef}
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site navigation"
             className="fixed inset-0 z-40 bg-bg-deep/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
