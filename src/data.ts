@@ -7,8 +7,11 @@ export const data = {
   availableText: 'AVAILABLE FOR HIRE',
   email: 'jimmy@jimmychamberlin.com',
   linkedin: 'https://linkedin.com/in/jimmychamberlin',
-  github: 'https://github.com/jimmychamberlin',
+  github: 'https://github.com/tru0blu0',
   location: 'United States',
+  // Canonical site URL — update here when domain changes.
+  // Used by Footer, JSON-LD, and any component that needs the full URL.
+  siteUrl: 'https://tru0blu0.github.io/jimmy-chamberlin-portfolio',
 
   stats: [
     { value: 16, suffix: '+', label: 'Years Operations Leadership', prefix: '' },
@@ -28,142 +31,115 @@ export const data = {
       domain: 'Logistics Operations',
       role: 'Supply Chain & Distribution Manager',
       period: '2015–2018',
-      icon: '◈',
+      icon: '📦',
     },
     {
       domain: 'Restaurant Operations',
       role: 'Multi-Unit Operations Director',
       period: '2012–2015',
-      icon: '◆',
+      icon: '🍽',
     },
     {
       domain: 'Legal Operations',
-      role: 'Operations & Process Manager',
+      role: 'Legal Ops & Compliance Coordinator',
       period: '2010–2012',
-      icon: '◇',
+      icon: '⚖',
     },
     {
-      domain: 'IT Operations',
-      role: 'IT Support Intern → Systems Analyst',
+      domain: 'IT Infrastructure',
+      role: 'IT Operations Intern',
       period: '2008–2010',
-      icon: '◉',
-    },
-  ],
-
-  caseStudies: [
-    {
-      id: '01',
-      domain: 'Business DevOps',
-      company: 'Enterprise SaaS Operations',
-      year: '2023',
-      headline: 'Reduced deployment cycle time by 72% across 6 product teams',
-      challenge:
-        'Six siloed engineering teams with inconsistent release cadences, manual QA gates, and zero shared operational tooling. Each release took 3–5 days and required 12+ stakeholders to coordinate.',
-      approach:
-        'Mapped the full value stream, identified 8 critical bottlenecks, implemented a unified CI/CD framework, and created cross-functional runbooks that reduced coordination overhead by half.',
-      results: [
-        { metric: '72%', label: 'Faster release cycles' },
-        { metric: '−8', label: 'Fewer coordination touchpoints' },
-        { metric: '×4.1', label: 'Deployment frequency' },
-        { metric: '$2.4M', label: 'Annual overhead saved' },
-      ],
-      tags: ['Process Engineering', 'CI/CD', 'Cross-functional Alignment', 'DevOps Culture'],
-    },
-    {
-      id: '02',
-      domain: 'Logistics Operations',
-      company: 'Regional Distribution Network',
-      year: '2017',
-      headline: 'Rebuilt 3-state distribution operation, cutting fulfillment time in half',
-      challenge:
-        'A 3-state distribution operation running on paper manifests, reactive routing, and 18% order error rate. Peak season threatened a major retail contract.',
-      approach:
-        'Deployed real-time route optimization, digitized inbound/outbound workflows, retrained 40+ staff on new SOPs, and built a live ops dashboard for shift supervisors.',
-      results: [
-        { metric: '51%', label: 'Faster fulfillment' },
-        { metric: '−94%', label: 'Order error reduction' },
-        { metric: '40+', label: 'Staff upskilled' },
-        { metric: '$3.8M', label: 'Retail contract retained' },
-      ],
-      tags: ['Supply Chain', 'Workflow Digitization', 'SOP Development', 'KPI Dashboards'],
-    },
-    {
-      id: '03',
-      domain: 'Restaurant Operations',
-      company: 'Multi-Unit Restaurant Group',
-      year: '2014',
-      headline: 'Turned 3 underperforming units into top performers in 8 months',
-      challenge:
-        'Three locations with declining revenue, 140% annual staff turnover, inconsistent service quality, and food cost running 38% (industry target: 28–32%).',
-      approach:
-        'Implemented unified training program, redesigned scheduling model, introduced waste tracking system, and created unit-level P&L accountability for managers.',
-      results: [
-        { metric: '−28pts', label: 'Turnover reduction' },
-        { metric: '31%', label: 'Food cost normalized' },
-        { metric: '+22%', label: 'Revenue uplift (YoY)' },
-        { metric: '×3', label: 'Units to top quartile' },
-      ],
-      tags: ['Multi-unit Ops', 'P&L Management', 'Training Systems', 'Cost Control'],
-    },
-    {
-      id: '04',
-      domain: 'Legal Operations',
-      company: 'Regional Law Firm',
-      year: '2011',
-      headline: 'Designed matter intake system that cut attorney admin time by 60%',
-      challenge:
-        'Attorneys spending 40% of billable hours on administrative coordination — matter intake, document routing, client communication tracking — all handled ad hoc.',
-      approach:
-        'Mapped attorney workflow end-to-end, implemented a structured matter management system, created standardized intake templates, and trained support staff as operational buffers.',
-      results: [
-        { metric: '60%', label: 'Less attorney admin time' },
-        { metric: '+40%', label: 'Billable capacity gained' },
-        { metric: '100%', label: 'Client intake standardized' },
-        { metric: '$1.2M', label: 'Recoverable revenue unlocked' },
-      ],
-      tags: ['Legal Ops', 'Process Design', 'Capacity Planning', 'Document Systems'],
-    },
-  ],
-
-  approach: [
-    {
-      step: '01',
-      title: 'Map the System',
-      description:
-        'Before changing anything, I map the full value stream — every handoff, bottleneck, and assumption baked into current operations. Clarity precedes action.',
-    },
-    {
-      step: '02',
-      title: 'Identify Leverage Points',
-      description:
-        'Not all problems are equal. I find the 20% of constraints causing 80% of drag — then sequence interventions for maximum compounding effect.',
-    },
-    {
-      step: '03',
-      title: 'Build for Ownership',
-      description:
-        'Systems without ownership fail at handoff. Every solution I build includes documentation, training, and accountability structures so teams own what they run.',
-    },
-    {
-      step: '04',
-      title: 'Measure and Iterate',
-      description:
-        'Gut feel is not a KPI. I define clear metrics before starting, track them rigorously, and iterate based on evidence — not assumption.',
+      icon: '💻',
     },
   ],
 
   skills: [
-    'Process Engineering', 'Value Stream Mapping', 'KPI / OKR Frameworks',
-    'Cross-functional Leadership', 'P&L Ownership', 'SOPs & Playbooks',
-    'CI/CD & DevOps Culture', 'Supply Chain Ops', 'Workforce Development',
-    'Legal & Compliance Ops', 'IT Systems Analysis', 'Change Management',
-    'Capacity Planning', 'Vendor Management', 'Executive Reporting',
+    'Process Engineering',
+    'Supply Chain Optimization',
+    'Cross-Functional Leadership',
+    'Business Intelligence',
+    'KPI & OKR Frameworks',
+    'Change Management',
+    'Compliance & Risk',
+    'Vendor Management',
+    'Budget Forecasting',
+    'ERP Systems',
+    'Workforce Planning',
+    'SOX & Audit Readiness',
   ],
 
-  credibilityMarquee: [
-    'Business DevOps', '·', 'Logistics Ops', '·', 'Restaurant Ops', '·',
-    'Legal Ops', '·', 'IT Operations', '·', 'BBA Graduate', '·',
-    '16 Years Leadership', '·', 'Process Engineering', '·',
-    'P&L Management', '·', 'Cross-functional Teams', '·',
+  caseStudies: [
+    {
+      id: 'logistics',
+      domain: 'LOGISTICS',
+      headline: 'Rebuilt fulfillment pipeline',
+      tagline: 'Reduced order-to-ship time by 62% in 6 months',
+      problem: 'A regional 3PL was hemorrhaging clients due to 4–5 day order-to-ship cycles. Manual pick-ticket processes, no real-time inventory visibility, and three disconnected WMS platforms made every day a triage exercise.',
+      approach: 'Mapped every handoff in the fulfillment flow. Identified 11 unnecessary approval steps. Consolidated to a single WMS, built live dashboards for floor supervisors, and implemented wave-picking sequences aligned to carrier cut-off times.',
+      results: [
+        { metric: '62%', label: 'Reduction in order-to-ship time' },
+        { metric: '94%', label: 'On-time delivery rate (up from 71%)' },
+        { metric: '$1.8M', label: 'Annual carrier penalty savings' },
+        { metric: '3', label: 'Retained enterprise clients at risk of churn' },
+      ],
+    },
+    {
+      id: 'restaurant',
+      domain: 'RESTAURANT / QSR',
+      headline: 'Rebuilt multi-unit ops model',
+      tagline: 'Turned 3 underperforming locations into top-10 systemwide',
+      problem: 'Three QSR franchise locations in the bottom quartile systemwide — high turnover, labor cost at 36% of revenue, and food waste running 2x the brand standard. Each GM operated independently with no shared systems.',
+      approach: 'Standardized labor scheduling templates, implemented a shared COGS tracking sheet across all three units, rebuilt onboarding from a 90-minute verbal rundown to a documented 5-day program. Created a weekly ops cadence across GMs.',
+      results: [
+        { metric: '36%→27%', label: 'Labor cost as % of revenue' },
+        { metric: '48%', label: 'Reduction in management turnover' },
+        { metric: 'Top 10', label: 'Systemwide ranking achieved within 18 months' },
+        { metric: '$420K', label: 'Annualized food waste reduction' },
+      ],
+    },
+    {
+      id: 'legal',
+      domain: 'LEGAL OPERATIONS',
+      headline: 'Rebuilt contract & compliance workflow',
+      tagline: 'Cut contract turnaround from 14 days to 3',
+      problem: 'A mid-size professional services firm had a legal ops function that was a bottleneck. Contracts sat in email chains for weeks, approval routing was ad hoc, and audit prep required weeks of manual document assembly.',
+      approach: 'Mapped the contract lifecycle end-to-end, identified that 80% of delays happened in two steps. Implemented a CLM tool, built standard templates for 90% of contract types, and automated approval routing for routine renewals.',
+      results: [
+        { metric: '14d → 3d', label: 'Average contract turnaround' },
+        { metric: '80%', label: 'Reduction in legal team review time on routine contracts' },
+        { metric: '$200K', label: 'First-year CLM ROI vs. outside counsel costs' },
+        { metric: '100%', label: 'Audit-ready document retrieval within 24 hours' },
+      ],
+    },
+  ],
+
+  education: {
+    degree: 'BBA — Business Administration',
+    institution: 'University of Phoenix',
+    year: '2014',
+    focus: 'Operations Management & Business Strategy',
+  },
+
+  approach: [
+    {
+      step: '01',
+      title: 'Map before you move',
+      description: 'Every engagement starts with process archaeology — understanding what actually happens, not what the org chart says happens.',
+    },
+    {
+      step: '02',
+      title: 'Instrument the work',
+      description: 'You cannot improve what you cannot measure. I build measurement infrastructure before recommending changes.',
+    },
+    {
+      step: '03',
+      title: 'Fix the system, not the symptom',
+      description: 'Most operational problems are structural. I design for root-cause elimination, not recurring patch jobs.',
+    },
+    {
+      step: '04',
+      title: 'Leave it self-sustaining',
+      description: 'Improvements that depend on one person are not improvements. Every engagement ends with documentation, training, and handoff.',
+    },
   ],
 }

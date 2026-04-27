@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Dark background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A0A0B"/>
+      <stop offset="100%" stop-color="#111113"/>
+    </linearGradient>
+    <!-- Amber glow for center accent -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4860A" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#D4860A" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Fine grid pattern -->
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid overlay -->
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Amber center glow -->
+  <ellipse cx="600" cy="315" rx="500" ry="280" fill="url(#glow)"/>
+
+  <!-- Left vertical accent bar -->
+  <rect x="80" y="140" width="2" height="350" fill="#D4860A" opacity="0.6"/>
+
+  <!-- Top horizontal rule -->
+  <line x1="80" y1="140" x2="340" y2="140" stroke="#D4860A" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- Availability pill -->
+  <rect x="80" y="112" width="180" height="22" rx="2" fill="#D4860A" fill-opacity="0.12"/>
+  <circle cx="97" cy="123" r="3.5" fill="#D4860A"/>
+  <text x="108" y="127" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="9" fill="#D4860A" letter-spacing="2" font-weight="500">AVAILABLE FOR HIRE</text>
+
+  <!-- Name -->
+  <text x="80" y="230" font-family="'Syne', 'Inter', 'Helvetica Neue', sans-serif" font-size="72" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Jimmy</text>
+  <text x="80" y="310" font-family="'Syne', 'Inter', 'Helvetica Neue', sans-serif" font-size="72" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Chamberlin</text>
+
+  <!-- Title / role in amber -->
+  <text x="80" y="360" font-family="'Syne', 'Inter', 'Helvetica Neue', sans-serif" font-size="22" font-weight="700" fill="#F5A623" letter-spacing="0.5">Operations Architect</text>
+
+  <!-- Subline -->
+  <text x="80" y="392" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13" fill="#6B7280" letter-spacing="1.5">16+ YEARS · LOGISTICS · RESTAURANT · LEGAL · IT</text>
+
+  <!-- Stats row -->
+  <g transform="translate(80, 450)">
+    <!-- Stat 1 -->
+    <text x="0" y="0" font-family="'Syne', sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">16+</text>
+    <text x="0" y="18" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6B7280" letter-spacing="1">YRS LEADERSHIP</text>
+
+    <!-- Stat 2 -->
+    <text x="130" y="0" font-family="'Syne', sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">85%</text>
+    <text x="130" y="18" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6B7280" letter-spacing="1">AVG EFFICIENCY GAIN</text>
+
+    <!-- Stat 3 -->
+    <text x="300" y="0" font-family="'Syne', sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">$12M</text>
+    <text x="300" y="18" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6B7280" letter-spacing="1">COST SAVINGS DRIVEN</text>
+  </g>
+
+  <!-- Bottom rule -->
+  <line x1="80" y1="490" x2="560" y2="490" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.06"/>
+
+  <!-- Right side — geometric accent -->
+  <g opacity="0.07">
+    <rect x="840" y="80" width="280" height="470" rx="4" stroke="#D4860A" stroke-width="1" fill="none"/>
+    <rect x="860" y="100" width="240" height="430" rx="2" stroke="#D4860A" stroke-width="0.5" fill="none"/>
+  </g>
+
+  <!-- Right side amber diamond accent -->
+  <polygon points="980,200 1060,315 980,430 900,315" stroke="#D4860A" stroke-width="1" fill="none" opacity="0.15"/>
+  <polygon points="980,240 1035,315 980,390 925,315" stroke="#D4860A" stroke-width="1" fill="none" opacity="0.25"/>
+
+  <!-- Center diamond glyph -->
+  <polygon points="980,290 1000,315 980,340 960,315" fill="#D4860A" opacity="0.9"/>
+
+  <!-- Domain badges on right -->
+  <g font-family="'JetBrains Mono', monospace" font-size="10" fill="#6B7280" letter-spacing="1.5">
+    <text x="900" y="520" text-anchor="middle">LOGISTICS</text>
+    <text x="980" y="540" text-anchor="middle">· RESTAURANT ·</text>
+    <text x="1060" y="520" text-anchor="middle">LEGAL · IT</text>
+  </g>
+
+  <!-- URL -->
+  <text x="600" y="602" font-family="'JetBrains Mono', monospace" font-size="11" fill="#4B5563" letter-spacing="1" text-anchor="middle">tru0blu0.github.io/jimmy-chamberlin-portfolio</text>
+
+  <!-- Bottom border accent -->
+  <line x1="0" y1="618" x2="1200" y2="618" stroke="#D4860A" stroke-width="2" stroke-opacity="0.3"/>
+</svg>

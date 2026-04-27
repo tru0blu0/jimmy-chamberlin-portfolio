@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tru0blu0.github.io/jimmy-chamberlin-portfolio/sitemap.xml

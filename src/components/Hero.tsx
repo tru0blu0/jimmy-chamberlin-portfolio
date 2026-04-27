@@ -32,7 +32,7 @@ export default function Hero() {
         aria-hidden="true"
         className="absolute top-0 right-0 w-[45vw] h-[45vw] rounded-full opacity-[0.07]"
         style={{
-          background: 'radial-gradient(circle, #F5A623 0%, transparent 70%)',
+          background: 'radial-gradient(circle, var(--color-amber-glow, #F5A623) 0%, transparent 70%)',
           filter: 'blur(60px)',
           transform: 'translate(30%, -20%)',
         }}

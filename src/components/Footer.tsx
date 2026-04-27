@@ -8,7 +8,7 @@ export default function Footer() {
           © {new Date().getFullYear()} {data.name} · All rights reserved
         </div>
         <div className="font-mono text-[10px] tracking-[0.1em] text-text-muted">
-          jimmychamberlin.netlify.app
+          {data.siteUrl.replace('https://', '')}
         </div>
         <div className="flex items-center gap-4">
           <a href={data.linkedin} target="_blank" rel="noopener noreferrer"
