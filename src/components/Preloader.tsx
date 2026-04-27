@@ -1,11 +1,25 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Preloader({ onComplete }: { onComplete: () => void }) {
+  const [count, setCount] = useState(0)
+
   useEffect(() => {
-    const t = setTimeout(onComplete, 800)
-    return () => clearTimeout(t)
-    // onComplete is intentionally excluded from deps — it's a stable callback
-    // and including it risks re-triggering the timer on every render
+    // Animate 0 → 99 over ~1.4s, then call onComplete
+    const totalMs = 1400
+    const steps = 99
+    const intervalMs = totalMs / steps
+
+    let current = 0
+    const interval = setInterval(() => {
+      current += 1
+      setCount(current)
+      if (current >= 99) {
+        clearInterval(interval)
+        setTimeout(onComplete, 150)
+      }
+    }, intervalMs)
+
+    return () => clearInterval(interval)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -31,6 +45,21 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
         <path d="M8 16L13 11L18 16L24 10" stroke="#D4860A" strokeWidth="1.5" strokeLinecap="round" />
         <circle cx="24" cy="10" r="2" fill="#D4860A" />
       </svg>
+
+      {/* Counter */}
+      <span
+        style={{
+          fontFamily: 'monospace',
+          fontSize: '48px',
+          fontWeight: '700',
+          color: '#D4860A',
+          lineHeight: 1,
+          minWidth: '3ch',
+          textAlign: 'right',
+        }}
+      >
+        {String(count).padStart(2, '0')}
+      </span>
 
       <span
         style={{
