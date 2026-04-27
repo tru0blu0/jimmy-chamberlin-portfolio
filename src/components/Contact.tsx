@@ -2,15 +2,40 @@ import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { data } from '../data'
 
+type FormState = 'idle' | 'submitting' | 'success' | 'error'
+
 export default function Contact() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10%' })
   const [copied, setCopied] = useState(false)
+  const [formState, setFormState] = useState<FormState>('idle')
 
   const copyEmail = () => {
     navigator.clipboard.writeText(data.email)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormState('submitting')
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+      })
+      if (res.ok) {
+        setFormState('success')
+        form.reset()
+      } else {
+        setFormState('error')
+      }
+    } catch {
+      setFormState('error')
+    }
   }
 
   return (
@@ -28,7 +53,7 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 text-center">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Section header */}
         <motion.div
           className="flex items-center justify-center gap-4 mb-10"
@@ -38,14 +63,14 @@ export default function Contact() {
           <span className="section-number">06 /</span>
           <div aria-hidden="true" className="h-px w-12 bg-amber-base/40" />
           <span className="font-display font-bold text-[11px] uppercase tracking-[0.2em] text-text-secondary">
-            Let's Work Together
+            Let&rsquo;s Work Together
           </span>
           <div aria-hidden="true" className="h-px w-12 bg-amber-base/40" />
         </motion.div>
 
         <motion.h2
           id="contact-heading"
-          className="text-display-lg font-display font-extrabold text-text-primary leading-none mb-6 text-balance"
+          className="text-display-lg font-display font-extrabold text-text-primary leading-none mb-6 text-balance text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.8 }}
@@ -56,31 +81,30 @@ export default function Contact() {
         </motion.h2>
 
         <motion.p
-          className="text-text-secondary max-w-xl mx-auto leading-relaxed mb-14"
+          className="text-text-secondary max-w-xl mx-auto leading-relaxed mb-14 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
         >
-          Whether you're scaling an operation, cleaning up a broken process, or building a new system
-          from scratch — I'd like to hear about it.
+          Whether you&rsquo;re scaling an operation, cleaning up a broken process, or building a new system
+          from scratch — I&rsquo;d like to hear about it.
         </motion.p>
 
+        {/* Quick contact CTAs */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3 }}
         >
-          {/* Primary CTA */}
           <a
             href={`mailto:${data.email}`}
-            className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-8 py-4 rounded-sm transition-all duration-200 shadow-amber-glow hover:shadow-amber-glow"
+            className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-8 py-4 rounded-sm transition-all duration-200"
           >
             SEND AN EMAIL
             <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
 
-          {/* Copy email */}
           <button
             onClick={copyEmail}
             aria-label={copied ? 'Email copied to clipboard' : `Copy email address ${data.email}`}
@@ -88,7 +112,7 @@ export default function Contact() {
           >
             <span aria-live="polite" aria-atomic="true" className="inline-flex items-center gap-2">
               {copied ? (
-                <><span aria-hidden="true" className="text-success">✓</span> COPIED</>
+                <><span aria-hidden="true" className="text-green-400">✓</span> COPIED</>
               ) : (
                 <>{data.email}</>
               )}
@@ -96,12 +120,112 @@ export default function Contact() {
           </button>
         </motion.div>
 
+        {/* Netlify contact form */}
+        <motion.div
+          className="max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          {formState === 'success' ? (
+            <div className="text-center py-16 border border-amber-base/20 rounded-sm bg-bg-deep">
+              <div className="text-4xl mb-4">✓</div>
+              <p className="font-display font-bold text-text-primary text-lg mb-2">Message received.</p>
+              <p className="text-text-secondary text-sm">I&rsquo;ll get back to you within 1–2 business days.</p>
+            </div>
+          ) : (
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              className="space-y-5"
+            >
+              {/* Hidden field required by Netlify Forms */}
+              <input type="hidden" name="form-name" value="contact" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="cf-name" className="block font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted mb-2">
+                    Name
+                  </label>
+                  <input
+                    id="cf-name"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your name"
+                    className="w-full bg-bg-deep border border-white/[0.08] focus:border-amber-base/60 text-text-primary placeholder-text-muted text-sm px-4 py-3 rounded-sm outline-none transition-colors duration-200 font-body"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="cf-email" className="block font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted mb-2">
+                    Email
+                  </label>
+                  <input
+                    id="cf-email"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="your@email.com"
+                    className="w-full bg-bg-deep border border-white/[0.08] focus:border-amber-base/60 text-text-primary placeholder-text-muted text-sm px-4 py-3 rounded-sm outline-none transition-colors duration-200 font-body"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="cf-subject" className="block font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted mb-2">
+                  Subject
+                </label>
+                <input
+                  id="cf-subject"
+                  type="text"
+                  name="subject"
+                  placeholder="What's this about?"
+                  className="w-full bg-bg-deep border border-white/[0.08] focus:border-amber-base/60 text-text-primary placeholder-text-muted text-sm px-4 py-3 rounded-sm outline-none transition-colors duration-200 font-body"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="cf-message" className="block font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="cf-message"
+                  name="message"
+                  required
+                  rows={5}
+                  placeholder="Tell me about your project or challenge..."
+                  className="w-full bg-bg-deep border border-white/[0.08] focus:border-amber-base/60 text-text-primary placeholder-text-muted text-sm px-4 py-3 rounded-sm outline-none transition-colors duration-200 font-body resize-none"
+                />
+              </div>
+
+              {formState === 'error' && (
+                <p className="text-red-400 font-mono text-[11px]">
+                  Something went wrong. Please try emailing directly at {data.email}.
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={formState === 'submitting'}
+                className="w-full sm:w-auto amber-cta group inline-flex items-center justify-center gap-3 bg-amber-base hover:bg-amber-glow disabled:opacity-50 disabled:cursor-not-allowed text-bg-deep font-display font-bold text-sm tracking-wide px-10 py-4 rounded-sm transition-all duration-200"
+              >
+                {formState === 'submitting' ? 'SENDING...' : 'SEND MESSAGE'}
+                {formState !== 'submitting' && (
+                  <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
+                )}
+              </button>
+            </form>
+          )}
+        </motion.div>
+
         {/* LinkedIn */}
         <motion.div
-          className="mt-10"
+          className="mt-14 text-center"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.6 }}
         >
           <a
             href={data.linkedin}
