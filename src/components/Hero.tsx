@@ -24,7 +24,7 @@ export default function Hero() {
   const words2 = data.tagline[1].split(' ')
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-32">
       {/* Layered backgrounds */}
       <div className="absolute inset-0 grid-bg" aria-hidden="true" />
       <div className="absolute inset-0 spotlight-bg" aria-hidden="true" />

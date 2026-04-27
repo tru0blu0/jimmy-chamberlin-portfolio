@@ -8,6 +8,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
   isOpen: boolean
   onClick: () => void
 }) {
+  const num = String(index + 1).padStart(2, '0')
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10%' })
   const toggleId = `case-${study.id}-toggle`
@@ -31,7 +32,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
       >
         {/* Number */}
         <span className="font-mono text-[11px] tracking-[0.1em] text-text-muted mt-1 shrink-0 w-8">
-          {study.id}
+          {num}
         </span>
 
         {/* Domain tag */}
