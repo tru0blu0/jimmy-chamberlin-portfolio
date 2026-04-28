@@ -43,10 +43,15 @@ export default function Approach() {
             // card-base = inner fill (opaque dark background) — ensures gradient only shows as 1px border ring
             <motion.div
               key={item.step}
-              className="group grad-card rounded-lg hover:shadow-lift transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
+              className="group grad-card rounded-lg hover:shadow-lift transition-shadow duration-300"
+              initial={{ opacity: 0, y: 20, '--ring-opacity': 0 } as any}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.12, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+              whileHover={{ '--ring-opacity': 0.65 } as any}
+              transition={{
+                opacity: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+                y: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay: i * 0.12 },
+                '--ring-opacity': { type: 'spring', stiffness: 300, damping: 30 },
+              }}
             >
               <div className="relative card-base rounded-lg p-8 h-full">
                 {/* Step number — large ghost */}

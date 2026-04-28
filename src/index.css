@@ -103,6 +103,13 @@
     inherits: false;
   }
 
+  /* Animatable ring opacity — Motion whileHover drives this via CSS var */
+  @property --ring-opacity {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true; /* inherits so ::before/::after pick it up from parent */
+  }
+
   /*
    * .grad-card — wraps a card with a rotating amber conic-gradient border ring.
    * ::before = solid 1px rotating ring
@@ -127,28 +134,17 @@
       from var(--gradient-angle),
       #7A4800, #C8860A, #D4860A, #C8860A, #7A4800
     );
+    /* Always spinning — Motion whileHover controls visibility via --ring-opacity */
     animation: grad-rotate 8s linear infinite;
-    animation-play-state: paused;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    opacity: var(--ring-opacity);
   }
-  /* Inner fill: solid opaque surface color covers the gradient, leaving only the 1px ring */
   .grad-card::before {
-    /* Clip to just the border by painting the card face on top via box-shadow inset */
-    /* Actually use a nested clip trick: paint a slightly smaller inset to mask card face */
-    box-shadow: inset 0 0 0 1px transparent; /* keeps border-radius */
-  }
-  .grad-card:hover::before {
-    animation-play-state: running;
-    opacity: 0.65;
+    /* ring only — card inner fill covers center */
   }
   .grad-card::after {
     filter: blur(1.5rem);
-    opacity: 0;
-  }
-  .grad-card:hover::after {
-    animation-play-state: running;
-    opacity: 0.18;
+    /* glow layer: half the ring opacity */
+    opacity: calc(var(--ring-opacity) * 0.28);
   }
 
 
