@@ -59,8 +59,6 @@ export default {
         'marquee2': 'marquee2 30s linear infinite',
         'counter': 'counter 0.8s ease-out forwards',
         'beam': 'beam 4s ease-in-out infinite',
-        'orbit-spin': 'orbit-spin 3.5s linear infinite',
-        'border-sweep': 'border-sweep 3s linear infinite',
       },
       keyframes: {
         marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
@@ -68,14 +66,6 @@ export default {
         beam: {
           '0%, 100%': { opacity: '0.6', transform: 'scaleX(1)' },
           '50%': { opacity: '1', transform: 'scaleX(1.05)' },
-        },
-        'orbit-spin': {
-          from: { transform: 'rotate(0deg) translateZ(0)' },
-          to:   { transform: 'rotate(360deg) translateZ(0)' },
-        },
-        'border-sweep': {
-          '0%':   { backgroundPosition: '0% 50%' },
-          '100%': { backgroundPosition: '200% 50%' },
         },
       },
       boxShadow: {
