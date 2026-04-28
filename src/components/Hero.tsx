@@ -20,7 +20,7 @@ export default function Hero() {
   const y = reduceMotion ? '0%' : yMotion
   const opacity = reduceMotion ? 1 : opacityMotion
 
-  const phrases = data.tagline.split('. ').filter(Boolean)
+  const phrases = data.tagline.split('.').map(p => p.trim()).filter(Boolean)
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-32">
@@ -139,7 +139,7 @@ export default function Hero() {
 
         {/* Experience pills */}
         <motion.div
-          className="mt-16 flex flex-wrap gap-2"
+          className="mt-20 flex flex-wrap gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
@@ -158,25 +158,6 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Scroll hint */}
-        <motion.div
-          aria-hidden="true"
-          className="absolute bottom-8 left-6 md:left-10 lg:left-16 flex items-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          <div className="flex flex-col gap-1">
-            <motion.div
-              className="w-px h-12 bg-gradient-to-b from-amber-base to-transparent mx-auto"
-              animate={reduceMotion ? {} : { scaleY: [1, 0.5, 1], opacity: [1, 0.4, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </div>
-          <span className="font-mono text-[9px] tracking-[0.2em] text-text-faint uppercase rotate-90 origin-left ml-2">
-            Scroll
-          </span>
-        </motion.div>
       </motion.div>
     </section>
   )
