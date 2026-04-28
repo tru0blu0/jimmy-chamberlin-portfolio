@@ -48,6 +48,12 @@ export default function Hero() {
         >
           <div className="h-px w-8 bg-amber-base" aria-hidden="true" />
           <span className="section-number">{data.subtitle}</span>
+          {data.available && (
+            <span className="ml-4 inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.12em] uppercase text-amber-text/80 border border-amber-base/25 rounded-full px-3 py-1">
+              <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-amber-base animate-pulse" />
+              {data.availableText}
+            </span>
+          )}
         </motion.div>
 
         {/* Main headline */}
