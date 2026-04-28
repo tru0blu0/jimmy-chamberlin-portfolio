@@ -55,8 +55,8 @@ export default {
       },
       animation: {
         'pulse-slow': 'pulse 3s ease-in-out infinite',
-        'marquee': 'marquee 30s linear infinite',
-        'marquee2': 'marquee2 30s linear infinite',
+        'marquee': 'marquee 80s linear infinite',
+        'marquee2': 'marquee2 80s linear infinite',
         'counter': 'counter 0.8s ease-out forwards',
         'beam': 'beam 4s ease-in-out infinite',
         'grad-rotate': 'grad-rotate 8s linear infinite',
