@@ -90,7 +90,9 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.7 }}
           >
             I build the operational infrastructure that turns complex, fragmented processes into
-            systems that work — reliably, repeatedly, and at scale.
+            systems that work — reliably, repeatedly, and at scale. Now layering in AI-augmented
+            workflows: LLM-powered document processing, automated compliance monitoring, and
+            agent-driven decision support. Same architectural rigor — modern tooling.
           </motion.p>
 
           <motion.div

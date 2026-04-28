@@ -60,6 +60,11 @@ export default function About() {
                 The result is operations that survive leadership transitions, scale without breaking,
                 and generate measurable ROI — not just activity.
               </p>
+              <p>
+                Now I'm applying that same systems-thinking to AI-augmented operations — identifying where
+                language models, automation agents, and predictive tooling can eliminate the friction
+                between raw data and operational decisions. Not chasing hype. Engineering outcomes.
+              </p>
             </div>
 
             <div className="mt-10 flex items-center gap-4">
