@@ -41,7 +41,7 @@ export default function Approach() {
           {data.approach.map((item, i) => (
             <motion.div
               key={item.step}
-              className="group relative card-base p-8 hover:shadow-lift transition-all duration-300"
+              className="group relative card-base grad-card p-8 hover:shadow-lift transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.12, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}

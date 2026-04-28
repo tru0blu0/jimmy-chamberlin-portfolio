@@ -59,6 +59,7 @@ export default {
         'marquee2': 'marquee2 30s linear infinite',
         'counter': 'counter 0.8s ease-out forwards',
         'beam': 'beam 4s ease-in-out infinite',
+        'grad-rotate': 'grad-rotate 8s linear infinite',
       },
       keyframes: {
         marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
@@ -66,6 +67,10 @@ export default {
         beam: {
           '0%, 100%': { opacity: '0.6', transform: 'scaleX(1)' },
           '50%': { opacity: '1', transform: 'scaleX(1.05)' },
+        },
+        'grad-rotate': {
+          '0%':   { '--gradient-angle': '0deg' },
+          '100%': { '--gradient-angle': '360deg' },
         },
       },
       boxShadow: {

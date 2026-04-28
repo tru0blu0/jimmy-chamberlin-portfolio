@@ -95,6 +95,96 @@
     50%       { opacity: 1.00; filter: blur(30px); }
   }
 
+  /* ── GradCard rotating gradient border (adapted from AJ1732/framer-motion-template) ── */
+  /* Houdini custom property — required for CSS to animate --gradient-angle */
+  @property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  /*
+   * .grad-card — wraps a card with a rotating amber conic-gradient border ring.
+   * ::before = solid 1px rotating ring
+   * ::after  = same ring but heavily blurred for ambient glow spill
+   * Usage: add "grad-card" class to any .card-base element.
+   * The card must have position:relative (card-base already has this via rounded-lg).
+   */
+  .grad-card {
+    position: relative;
+    isolation: isolate;
+  }
+  .grad-card::before,
+  .grad-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    z-index: -1;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      #FFD43B, #D4860A, #F08C00, #D4860A, #FFD43B
+    );
+    animation: grad-rotate 8s linear infinite;
+    animation-play-state: paused;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .grad-card:hover::before,
+  .grad-card:hover::after {
+    animation-play-state: running;
+    opacity: 1;
+  }
+  .grad-card::after {
+    filter: blur(2.5rem);
+    opacity: 0;
+  }
+  .grad-card:hover::after {
+    opacity: 0.45;
+  }
+
+
+  /* Houdini custom property — required for Framer Motion to animate --x */
+  @property --x {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: false;
+  }
+
+  /* Diagonal amber shimmer mask on button text */
+  .shiny-text {
+    mask-image: linear-gradient(
+      -75deg,
+      white calc(var(--x) + 20%),
+      transparent calc(var(--x) + 30%),
+      white calc(var(--x) + 100%)
+    );
+    -webkit-mask-image: linear-gradient(
+      -75deg,
+      white calc(var(--x) + 20%),
+      transparent calc(var(--x) + 30%),
+      white calc(var(--x) + 100%)
+    );
+  }
+
+  /* Diagonal amber shimmer overlay on the border ring */
+  .shiny-overlay {
+    background-image: linear-gradient(
+      -75deg,
+      rgba(255, 213, 128, 0.08) calc(var(--x) + 20%),
+      rgba(255, 213, 128, 0.45) calc(var(--x) + 25%),
+      rgba(255, 213, 128, 0.08) calc(var(--x) + 100%)
+    );
+    mask:
+      linear-gradient(black, black) content-box,
+      linear-gradient(black, black);
+    -webkit-mask:
+      linear-gradient(black, black) content-box,
+      linear-gradient(black, black);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+
   .amber-cta:hover {
     transform: translateY(-2px);
     box-shadow:

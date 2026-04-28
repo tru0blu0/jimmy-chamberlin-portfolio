@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion, MotionConfig } from 'framer-motion'
 import { data } from '../data'
 
 const container = {
@@ -99,13 +99,29 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.7 }}
           >
-            <a
+            <motion.a
               href="#work"
               className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-7 py-4 rounded-sm"
+              initial={{ '--x': '100%' } as React.CSSProperties & { '--x': string }}
+              animate={{ '--x': '-100%' } as React.CSSProperties & { '--x': string }}
+              whileTap={{ scale: 0.97 }}
+              transition={{
+                repeat: Infinity,
+                repeatType: 'loop',
+                repeatDelay: 1.5,
+                type: 'spring',
+                stiffness: 20,
+                damping: 15,
+                mass: 2,
+                scale: { type: 'spring', stiffness: 10, damping: 5, mass: 0.1 },
+              }}
             >
-              VIEW CASE STUDIES
-              <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
+              <span className="shiny-text relative block font-display font-bold text-sm tracking-wide text-bg-deep">
+                VIEW CASE STUDIES
+              </span>
+              <span aria-hidden="true" className="shiny-text group-hover:translate-x-1 transition-transform text-bg-deep">→</span>
+              <span aria-hidden="true" className="shiny-overlay absolute inset-0 block rounded-sm p-px" />
+            </motion.a>
             <a
               href="#contact"
               className="inline-flex items-center gap-3 text-text-secondary hover:text-text-primary text-sm tracking-wide transition-colors"
