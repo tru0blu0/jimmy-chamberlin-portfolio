@@ -53,16 +53,13 @@ export default function Nav() {
         <a href="#" className="flex items-center gap-3 group" aria-label={`${data.name} — home`}>
           <div className="w-8 h-8 relative">
             <svg viewBox="0 0 32 32" fill="none" className="w-full h-full" aria-hidden="true" focusable="false">
-              <rect width="32" height="32" rx="5" fill="#0A0E17"/>
-              {/* J: stem + hook — amber base */}
-              <path d="M14 6 L14 21.5 Q14 27 9.5 27 Q5.5 27 5.5 22.5" stroke="#D4860A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
-              {/* C: open arc — teal base */}
-              <path d="M26.5 11 A9 9 0 1 0 26.5 21" stroke="#1B7A8A" strokeWidth="3.5" strokeLinecap="round"/>
+              <rect width="32" height="32" rx="6" fill="#151E2E" stroke="#1B7A8A" strokeWidth="0.75" strokeOpacity="0.3"/>
+              {/* J: stem + hook — amber */}
+              <path d="M13 7 L13 20.5 Q13 26 9 26 Q5.5 26 5.5 22" stroke="#D4860A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* C: open ring — teal */}
+              <path d="M27 10 A8 8 0 1 0 27 22" stroke="#1B7A8A" strokeWidth="3.5" strokeLinecap="round"/>
             </svg>
           </div>
-          <span aria-hidden="true" className="font-mono text-[11px] tracking-[0.12em] text-text-secondary group-hover:text-amber-text transition-colors">
-            JC
-          </span>
         </a>
 
         {/* Desktop nav */}
