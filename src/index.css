@@ -85,7 +85,13 @@
     );
     filter: blur(24px);
     opacity: 0.92;
-    transition: opacity 0.35s ease, filter 0.35s ease, bottom 0.35s ease;
+    animation: amber-breathe 2.8s ease-in-out infinite;
+    transition: bottom 0.35s ease;
+  }
+
+  @keyframes amber-breathe {
+    0%, 100% { opacity: 0.85; filter: blur(22px); }
+    50%       { opacity: 1.00; filter: blur(30px); }
   }
 
   .amber-cta:hover {
