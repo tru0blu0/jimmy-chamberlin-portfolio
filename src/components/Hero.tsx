@@ -123,7 +123,10 @@ export default function Hero() {
               className="flex items-center gap-2 px-4 py-2 border border-white/[0.08] rounded-full text-text-secondary text-[12px] hover:border-amber-base/30 hover:text-text-primary transition-all cursor-default"
             >
               <span aria-hidden="true" className="text-amber-text text-xs">{exp.icon}</span>
-              {exp.domain}
+              <span className="flex flex-col leading-tight">
+                <span>{exp.domain}</span>
+                <span className="text-[10px] text-text-muted">{exp.period}</span>
+              </span>
             </div>
           ))}
         </motion.div>
