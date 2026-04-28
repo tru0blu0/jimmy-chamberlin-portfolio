@@ -5,8 +5,10 @@ import { data } from '../data'
 function Counter({ to, prefix = '', suffix = '' }: { to: number; prefix?: string; suffix?: string }) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-20%' })
+  // Use '0px' margin so counter fires as soon as any pixel enters the viewport
+  const inView = useInView(ref, { once: true, margin: '0px' })
   const reduceMotion = useReducedMotion()
+  const isFloat = !Number.isInteger(to)
 
   useEffect(() => {
     if (!inView) return
@@ -21,17 +23,20 @@ function Counter({ to, prefix = '', suffix = '' }: { to: number; prefix?: string
     const tick = (now: number) => {
       const progress = Math.min((now - start) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 4)
-      setCount(Math.floor(eased * to))
+      const current = eased * to
+      setCount(isFloat ? Math.round(current * 10) / 10 : Math.floor(current))
       if (progress < 1) raf = requestAnimationFrame(tick)
       else setCount(to)
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [inView, to, reduceMotion])
+  }, [inView, to, reduceMotion, isFloat])
+
+  const display = isFloat ? count.toFixed(1) : count
 
   return (
     <span ref={ref} className="tabular-nums">
-      {prefix}{count}{suffix}
+      {prefix}{display}{suffix}
     </span>
   )
 }
