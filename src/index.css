@@ -113,12 +113,13 @@
   .grad-card {
     position: relative;
     isolation: isolate;
+    padding: 1px; /* 1px gap = the border ring width */
   }
   .grad-card::before,
   .grad-card::after {
     content: '';
     position: absolute;
-    inset: -1px;
+    inset: 0;
     border-radius: inherit;
     z-index: -1;
     /* On-brand amber only — NO bright yellow. #C8860A (gold token) darkest, #D4860A mid */
