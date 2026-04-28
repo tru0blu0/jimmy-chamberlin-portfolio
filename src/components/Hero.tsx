@@ -8,7 +8,7 @@ const container = {
 }
 const line = {
   hidden: { y: '100%', opacity: 0 },
-  show: { y: '0%', opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  show: { y: '0%', opacity: 1, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
 }
 
 export default function Hero() {
@@ -38,7 +38,7 @@ export default function Hero() {
         }}
       />
 
-      <motion.div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16" style={{ y, opacity }}>
+      <motion.div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16" style={{ y, opacity, willChange: 'transform, opacity' }}>
         {/* Badge */}
         <motion.div
           className="flex items-center gap-3 mb-10"

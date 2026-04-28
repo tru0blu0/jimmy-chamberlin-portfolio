@@ -36,7 +36,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <h2 id="about-heading" className="text-display-md font-display font-extrabold text-text-primary mb-8 leading-none">
               Operations is{' '}

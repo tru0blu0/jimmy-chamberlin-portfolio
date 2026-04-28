@@ -71,7 +71,7 @@ export default function Metrics() {
               className="bg-bg-deep p-8 md:p-12 group hover:bg-bg-surface transition-colors duration-300"
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: i * 0.1, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               {/* Number */}
               <div className="font-display text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-amber-glow leading-none mb-3 group-hover:text-amber-beam transition-colors">

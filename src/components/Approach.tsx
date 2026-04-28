@@ -42,9 +42,9 @@ export default function Approach() {
             <motion.div
               key={item.step}
               className="group relative card-base p-8 hover:shadow-lift transition-all duration-300"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: i * 0.12, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               {/* Step number — large ghost */}
               <div className="font-display font-extrabold text-[5rem] leading-none text-white/[0.04] select-none absolute top-4 right-6 group-hover:text-amber-base/[0.08] transition-colors">

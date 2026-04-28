@@ -14,7 +14,7 @@
   * { box-sizing: border-box; }
 
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth removed — conflicts with Framer Motion useSpring (double-smoothing) */
     background-color: #0A0B0F;
   }
 
@@ -24,7 +24,8 @@
     background-color: #0A0B0F;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    /* overflow-x: clip instead of hidden — does NOT create scroll container, preserves GPU compositor */
+    overflow-x: clip;
   }
 
   ::selection {

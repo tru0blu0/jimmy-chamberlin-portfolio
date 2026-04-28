@@ -14,7 +14,7 @@ import Footer from './components/Footer'
 export default function App() {
   const [loaded, setLoaded] = useState(false)
   const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
+  const scaleX = useSpring(scrollYProgress, { stiffness: 400, damping: 40, restDelta: 0.001 })
 
   // Cursor spotlight
   useEffect(() => {
