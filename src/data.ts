@@ -126,7 +126,7 @@ export const data = {
       tags: ['Batch Scripting', 'VBScript/WMI', 'psexec', 'Remote Deployment', 'Systems Admin', 'PowerShell'],
       results: [
         { metric: '300–400+', label: 'Workstations addressable per deployment cycle' },
-        { metric: 'Monthly',  label: 'Deployment cadence established — both campuses' },
+        { metric: '1×/mo',   label: 'Deployment cadence established — both campuses' },
         { metric: '8',        label: 'Scripts built (Batch, VBScript, PowerShell)' },
         { metric: '0',        label: 'Required physical presence on target machines' },
       ],

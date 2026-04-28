@@ -117,7 +117,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
                       key={i}
                       className="bg-bg-surface border border-white/[0.06] rounded-lg p-4 shadow-card"
                     >
-                      <div className="font-display font-extrabold text-2xl text-amber-glow leading-none mb-1">
+                      <div className={`font-display font-extrabold text-amber-glow leading-none mb-1 ${r.metric.length > 5 ? 'text-lg' : r.metric.length > 3 ? 'text-xl' : 'text-2xl'}`}>
                         {r.metric}
                       </div>
                       <div className="font-mono text-[9px] tracking-[0.08em] text-text-secondary uppercase">
