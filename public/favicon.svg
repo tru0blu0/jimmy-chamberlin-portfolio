@@ -1,5 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect x="1" y="1" width="30" height="30" rx="3" stroke="#D4860A" stroke-width="1.5"/>
-  <path d="M7 17L12 12L17 17L25 9" stroke="#D4860A" stroke-width="1.5" stroke-linecap="round"/>
-  <circle cx="25" cy="9" r="2" fill="#D4860A"/>
+  <defs>
+    <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F4A827"/>
+      <stop offset="100%" stop-color="#C8860A"/>
+    </linearGradient>
+    <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#23BDD4"/>
+      <stop offset="100%" stop-color="#1B7A8A"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="5" fill="#1B3A6B"/>
+  <!-- J: crossbar + stem + hook — amber gradient -->
+  <path d="M7.5 8 L12.5 8" stroke="url(#ag)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M10 8 L10 20.5 Q10 26 6.5 26" stroke="url(#ag)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- C: teal gradient arc with endcap dots -->
+  <path d="M26 10 A7 7 0 1 0 26 22" stroke="url(#tg)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="26" cy="10" r="1.5" fill="#23BDD4"/>
+  <circle cx="26" cy="22" r="1.5" fill="#1B7A8A"/>
 </svg>

@@ -53,9 +53,24 @@ export default function Nav() {
         <a href="#" className="flex items-center gap-3 group" aria-label={`${data.name} — home`}>
           <div className="w-8 h-8 relative">
             <svg viewBox="0 0 32 32" fill="none" className="w-full h-full" aria-hidden="true" focusable="false">
-              <rect x="2" y="2" width="28" height="28" rx="2" stroke="#D4860A" strokeWidth="1.5" />
-              <path d="M8 16L13 11L18 16L24 10" stroke="#D4860A" strokeWidth="1.5" strokeLinecap="round" />
-              <circle cx="24" cy="10" r="2" fill="#D4860A" />
+              <defs>
+                <linearGradient id="jc-ag" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#F4A827"/>
+                  <stop offset="100%" stopColor="#C8860A"/>
+                </linearGradient>
+                <linearGradient id="jc-tg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#23BDD4"/>
+                  <stop offset="100%" stopColor="#1B7A8A"/>
+                </linearGradient>
+              </defs>
+              <rect width="32" height="32" rx="5" fill="#1B3A6B"/>
+              {/* J: crossbar + stem + hook — amber gradient */}
+              <path d="M7.5 8 L12.5 8" stroke="url(#jc-ag)" strokeWidth="2.5" strokeLinecap="round"/>
+              <path d="M10 8 L10 20.5 Q10 26 6.5 26" stroke="url(#jc-ag)" strokeWidth="2.5" strokeLinecap="round"/>
+              {/* C: teal gradient arc with endcap dots */}
+              <path d="M26 10 A7 7 0 1 0 26 22" stroke="url(#jc-tg)" strokeWidth="2.5" strokeLinecap="round"/>
+              <circle cx="26" cy="10" r="1.5" fill="#23BDD4"/>
+              <circle cx="26" cy="22" r="1.5" fill="#1B7A8A"/>
             </svg>
           </div>
           <span aria-hidden="true" className="font-mono text-[11px] tracking-[0.12em] text-text-secondary group-hover:text-amber-text transition-colors">
