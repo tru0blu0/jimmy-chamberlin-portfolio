@@ -44,6 +44,54 @@
     outline-offset: 3px;
     border-radius: 2px;
   }
+  /* ── Amber CTA backlit panel effect ── */
+  .amber-cta {
+    position: relative;
+    isolation: isolate;
+    /* 4-layer shadow stack: border-amplifier | near-bloom | atmospheric-backlight | grounding-drop */
+    box-shadow:
+      inset 0 1px 0 rgba(255,213,128,0.22),
+      0 0 0 1px rgba(212,134,10,0.45),
+      0 0 14px 3px rgba(212,134,10,0.40),
+      0 0 50px 10px rgba(212,134,10,0.18),
+      0 4px 20px rgba(0,0,0,0.55);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  /* The physical light blob — sits behind the button */
+  .amber-cta::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    z-index: -1;
+    border-radius: 4px;
+    background: radial-gradient(
+      ellipse 110% 90% at 50% 58%,
+      rgba(212,134,10,0.65) 0%,
+      rgba(212,134,10,0.25) 45%,
+      transparent 72%
+    );
+    filter: blur(14px);
+    opacity: 0.85;
+    transition: filter 0.3s ease, inset 0.3s ease, opacity 0.3s ease;
+  }
+
+  .amber-cta:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,213,128,0.30),
+      0 0 0 1px rgba(245,166,35,0.65),
+      0 0 20px 5px rgba(245,166,35,0.55),
+      0 0 70px 18px rgba(212,134,10,0.28),
+      0 6px 28px rgba(0,0,0,0.65);
+  }
+
+  .amber-cta:hover::after {
+    filter: blur(20px);
+    inset: -10px;
+    opacity: 1;
+  }
+
   /* On amber CTA fills, swap to a dark inner ring so the focus stays visible */
   .amber-cta:focus-visible {
     outline-color: #0A0B0F;

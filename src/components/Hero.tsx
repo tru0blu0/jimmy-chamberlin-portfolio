@@ -101,7 +101,7 @@ export default function Hero() {
           >
             <a
               href="#work"
-              className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-7 py-4 rounded-sm transition-all duration-200 shadow-amber-glow hover:shadow-amber-glow"
+              className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-7 py-4 rounded-sm"
             >
               VIEW CASE STUDIES
               <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
