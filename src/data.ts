@@ -159,6 +159,30 @@ export const data = {
     },
   ],
 
+  testimonials: [
+    {
+      quote: "Jimmy built our freight brokerage operation from absolute zero. He secured our FMCSA authority, selected and implemented our TMS, got every truck ELD-compliant ahead of the federal deadline, and built the carrier onboarding and compliance systems from scratch. In three years under his operational management, we had zero FMCSA enforcement actions and qualified as an SDDC DoD Certified Carrier. He didn't just do the work — he documented it so thoroughly that his successor could step in without missing a beat.",
+      name: 'Ryan Frasier',
+      title: 'General Manager',
+      company: 'J&J Auto Express, LLC',
+      caseId: 'logistics',
+    },
+    {
+      quote: "Jimmy took a restaurant doing $734K and turned it into a $1.25M operation. He built the P&L system from scratch — a 19-sheet Excel workbook that gave me visibility into every cost center I'd never been able to see before. He got our costs under control, implemented a dual-vendor strategy that improved our margins, and documented every process so the restaurant ran whether he was there or not. In 30 years in this business, I've never seen someone build operational infrastructure that thoroughly. Best operational hire I ever made.",
+      name: 'Joe Dunigan',
+      title: 'Owner / Shareholder',
+      company: 'Seven Brothers, LLC (The Pointe Bar & Grill)',
+      caseId: 'restaurant',
+    },
+    {
+      quote: "I managed the day-to-day operations and watched Jimmy build the infrastructure that made my job possible. The SOPs he wrote for every role, the inventory tracking system he implemented, the dual-vendor strategy he negotiated — he created the entire operational playbook. Our alcohol costs stayed under 32% for nearly two straight years. Our staffing model went from guesswork to data-driven scheduling. The restaurant didn't just run better while he was there — it kept running better after he left because the systems were that solid.",
+      name: 'Daryl Hoskins',
+      title: 'General Manager',
+      company: 'The Pointe Bar & Grill (Seven Brothers, LLC)',
+      caseId: 'restaurant',
+    },
+  ],
+
   education: {
     degree: 'BBA — Business Administration',
     institution: 'Baker College, Jackson MI',

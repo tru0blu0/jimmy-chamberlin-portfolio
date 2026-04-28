@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import Metrics from './components/Metrics'
 import CaseStudies from './components/CaseStudies'
+import Testimonials from './components/Testimonials'
 import Approach from './components/Approach'
 import About from './components/About'
 import Contact from './components/Contact'
@@ -49,6 +50,7 @@ export default function App() {
             <Marquee />
             <Metrics />
             <CaseStudies />
+            <Testimonials />
             <Approach />
             <About />
             <Contact />
