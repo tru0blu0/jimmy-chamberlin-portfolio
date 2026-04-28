@@ -98,8 +98,8 @@ function CaseCard({ study, index, isOpen, onClick }: {
                   </div>
 
                   {'wouldDoDifferently' in study && (study as {wouldDoDifferently?: string}).wouldDoDifferently && (
-                    <div className="bg-bg-surface border border-amber-base/10 rounded-lg p-5">
-                      <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-glow uppercase mb-3">
+                    <div className="bg-bg-surface border border-teal-base/20 rounded-lg p-5">
+                      <h4 className="font-mono text-[9px] tracking-[0.2em] text-teal-glow uppercase mb-3">
                         What I'd Do Differently Today
                       </h4>
                       <p className="text-text-secondary leading-relaxed text-sm">

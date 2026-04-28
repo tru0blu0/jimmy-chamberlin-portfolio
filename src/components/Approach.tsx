@@ -38,7 +38,12 @@ export default function Approach() {
 
         {/* Steps */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {data.approach.map((item, i) => (
+          {data.approach.map((item, i) => {
+            const isEven = i % 2 === 0
+            const accentClass = isEven ? 'bg-amber-base' : 'bg-teal-base'
+            const hoverViaClass = isEven ? 'group-hover:via-amber-base/40' : 'group-hover:via-teal-base/40'
+            const ghostClass = isEven ? 'group-hover:text-amber-base/[0.08]' : 'group-hover:text-teal-base/[0.08]'
+            return (
             // grad-card = outer wrapper (no background) — ::before/-after gradient ring sits at z:-1 beneath inner card
             // card-base = inner fill (opaque dark background) — ensures gradient only shows as 1px border ring
             <motion.div
@@ -55,12 +60,12 @@ export default function Approach() {
             >
               <div className="relative card-base rounded-lg p-8 h-full">
                 {/* Step number — large ghost */}
-                <div className="font-display font-extrabold text-[5rem] leading-none text-white/[0.04] select-none absolute top-4 right-6 group-hover:text-amber-base/[0.08] transition-colors">
+                <div className={`font-display font-extrabold text-[5rem] leading-none text-white/[0.04] select-none absolute top-4 right-6 transition-colors ${ghostClass}`}>
                   {item.step}
                 </div>
 
-                {/* Amber top accent */}
-                <div className="w-8 h-0.5 bg-amber-base mb-8 group-hover:w-full transition-all duration-500" />
+                {/* Accent bar */}
+                <div className={`w-8 h-0.5 mb-8 group-hover:w-full transition-all duration-500 ${accentClass}`} />
 
                 <h3 className="font-display font-bold text-xl text-text-primary mb-3 leading-snug">
                   {item.title}
@@ -70,10 +75,10 @@ export default function Approach() {
                 </p>
 
                 {/* Hover bottom border glow */}
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-base/0 to-transparent group-hover:via-amber-base/40 transition-all duration-500" />
+                <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-transparent to-transparent transition-all duration-500 ${hoverViaClass}`} />
               </div>
             </motion.div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

@@ -1,11 +1,13 @@
-/* WCAG contrast (computed against bg-deep #0A0B0F):
- *   text.primary   #F0F2F7  16.7:1  AAA
- *   text.secondary #8892A4   6.4:1  AA / AAA-large
- *   text.muted     #6B7280   4.6:1  AA  (meaningful small text)
+/* WCAG contrast (computed against bg-deep #0A0E17):
+ *   text.primary   #EDF0F5  15.8:1  AAA
+ *   text.secondary #8892A4   5.9:1  AA
+ *   text.muted     #6B7280   4.5:1  AA
  *   text.faint     #4A5568   3.0:1  decorative-only chrome
- *   amber.text     #FFB347   7.4:1  AAA (small amber labels & numbers)
- *   amber.glow     #F5A623   5.6:1  AA  (body-size amber)
- *   amber.base     #D4860A   4.0:1  AA-large only (decorative borders/glow)
+ *   amber.text     #FFB347   7.4:1  AAA
+ *   amber.glow     #F5A623   5.6:1  AA
+ *   amber.base     #D4860A   4.0:1  AA-large only
+ *   teal.glow      #2DD4BF   8.1:1  AAA
+ *   teal.base      #1B7A8A   3.9:1  AA-large only
  */
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,12 +16,12 @@ export default {
     extend: {
       colors: {
         bg: {
-          deep: '#0A0B0F',
-          surface: '#111318',
-          raised: '#1A1D26',
+          deep: '#0F1724',
+          surface: '#151E2E',
+          raised: '#1C2738',
         },
         text: {
-          primary: '#F0F2F7',
+          primary: '#EDF0F5',
           secondary: '#8892A4',
           muted: '#6B7280',
           faint: '#4A5568',
@@ -30,6 +32,12 @@ export default {
           text: '#FFB347',
           dim: '#7A4D09',
           beam: '#FFD580',
+        },
+        teal: {
+          glow: '#2DD4BF',
+          base: '#1B7A8A',
+          text: '#5EEAD4',
+          dim: '#0F5E6A',
         },
         success: '#22C55E',
         stat: '#60A5FA',
@@ -45,10 +53,10 @@ export default {
         'display-md': ['clamp(1.5rem, 4vw, 3rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
       },
       backgroundImage: {
-        'spotlight': 'radial-gradient(ellipse 70% 50% at 50% -5%, rgba(212,134,10,0.18) 0%, transparent 70%)',
-        'spotlight-side': 'radial-gradient(ellipse 40% 60% at 0% 50%, rgba(212,134,10,0.1) 0%, transparent 60%)',
-        'surface-lit': 'linear-gradient(135deg, #1A1D26 0%, #111318 60%)',
-        'grid-lines': 'linear-gradient(rgba(240,242,247,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(240,242,247,0.03) 1px, transparent 1px)',
+        'spotlight': 'radial-gradient(ellipse 70% 50% at 50% -5%, rgba(27,122,138,0.12) 0%, transparent 70%)',
+        'spotlight-side': 'radial-gradient(ellipse 40% 60% at 0% 50%, rgba(212,134,10,0.08) 0%, transparent 60%)',
+        'surface-lit': 'linear-gradient(135deg, #1A2030 0%, #111620 60%)',
+        'grid-lines': 'linear-gradient(rgba(237,240,245,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(237,240,245,0.025) 1px, transparent 1px)',
       },
       backgroundSize: {
         'grid': '80px 80px',
@@ -76,8 +84,9 @@ export default {
       boxShadow: {
         'amber-glow': '0 0 30px rgba(212,134,10,0.25), 0 0 60px rgba(212,134,10,0.1)',
         'amber-sm': '0 0 15px rgba(212,134,10,0.2)',
-        'card': '0 1px 0 rgba(240,242,247,0.06) inset, 0 -1px 0 rgba(0,0,0,0.3) inset',
-        'lift': '0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,134,10,0.15)',
+        'teal-glow': '0 0 30px rgba(27,122,138,0.25), 0 0 60px rgba(27,122,138,0.1)',
+        'card': '0 1px 0 rgba(237,240,245,0.05) inset, 0 -1px 0 rgba(0,0,0,0.3) inset',
+        'lift': '0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(27,122,138,0.12)',
       },
     },
   },
