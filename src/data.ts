@@ -2,7 +2,7 @@ export const data = {
   name: 'Jimmy Chamberlin',
   title: 'Operations Architect',
   tagline: ['Operations that run', 'after I\'m gone.'],
-  subtitle: 'Business Operations Leader · 16 Years · BBA',
+  subtitle: 'Business Operations Leader · 16 Years · BBA · AI-Ready',
   available: true,
   availableText: 'AVAILABLE FOR HIRE',
   email: 'jimchamberlin7@gmail.com',
@@ -81,6 +81,11 @@ export const data = {
     'Tech Stack Selection & Integration',
     'Remote Endpoint Management',
     'Scripting & Workflow Automation',
+    // AI & Modern Tooling
+    'AI-Augmented Workflow Design',
+    'LLM Prompt Engineering',
+    'Agentic Process Automation',
+    'AI-Assisted Document Processing',
   ],
 
   caseStudies: [
