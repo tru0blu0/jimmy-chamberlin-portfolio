@@ -60,7 +60,6 @@ export default {
         'counter': 'counter 0.8s ease-out forwards',
         'beam': 'beam 4s ease-in-out infinite',
         'orbit-spin': 'orbit-spin 3.5s linear infinite',
-        'card-orbit': 'card-orbit 6s linear infinite',
         'border-sweep': 'border-sweep 3s linear infinite',
       },
       keyframes: {
@@ -71,10 +70,6 @@ export default {
           '50%': { opacity: '1', transform: 'scaleX(1.05)' },
         },
         'orbit-spin': {
-          from: { transform: 'rotate(0deg) translateZ(0)' },
-          to:   { transform: 'rotate(360deg) translateZ(0)' },
-        },
-        'card-orbit': {
           from: { transform: 'rotate(0deg) translateZ(0)' },
           to:   { transform: 'rotate(360deg) translateZ(0)' },
         },
