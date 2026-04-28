@@ -99,6 +99,7 @@ export const data = {
         { metric: 'Jul 2019',label: 'VehicHaul TMS go-live — replaced AscendTMS bottleneck' },
         { metric: '0',       label: 'Enforcement actions across 3 years of broker operations' },
       ],
+      wouldDoDifferently: 'Today I\'d deploy an AI-powered carrier onboarding pipeline: LLM-based document extraction from carrier packets (insurance certs, W-9s, authority records) to auto-populate the TMS, automated compliance monitoring that cross-references SaferWatch data against carrier profiles daily, and a multi-agent workflow where one agent vets carriers, another flags compliance anomalies, and a third generates onboarding checklists. Fleet MDM would use AI-driven anomaly detection for driver behavior and predictive maintenance. The 2,561-invoice Excel ledger? Replace with a lightweight database plus AI-assisted reconciliation that flags discrepancies before payment — same operational rigor, modern tooling.',
     },
     {
       id: 'restaurant',
@@ -115,6 +116,7 @@ export const data = {
         { metric: '$1.42M', label: 'Vendor spend tracked — 2,561 invoices reconciled' },
         { metric: '0',      label: 'MLCC compliance violations — full 28-month tenure' },
       ],
+      wouldDoDifferently: 'The 19-sheet Excel P&L would become a real-time Metabase or Power BI dashboard pulling directly from POS and vendor APIs — zero manual data entry. AI-driven demand forecasting would optimize GFS + Sysco ordering using historical sales, weather, and local event data. Computer vision inventory systems would automate waste tracking at the kitchen level. LLM-powered SOP generation would let me document processes by narrating them aloud, with AI structuring, formatting, and cross-referencing against MLCC and health code requirements. Same financial discipline, exponentially less administrative drag.',
     },
     {
       id: 'legal',
@@ -131,6 +133,7 @@ export const data = {
         { metric: '7+',   label: 'Practice areas supported simultaneously' },
         { metric: '0',    label: 'E-filing rejections across 4+ year tenure' },
       ],
+      wouldDoDifferently: 'The document prep pipeline I built with templates and conditional logic would now layer in AI-assisted drafting: intake form → LLM generates first-draft pleadings and correspondence formatted to Michigan MCR/MCL standards, with the attorney reviewing and signing off. MiFILE e-filing could be automated end-to-end — document generation → format validation → submission tracking, with an AI agent monitoring filing statuses, deadlines, and court responses. Client communication would use AI-scheduled reminders and status updates triggered by case milestones. The architecture — unified CMS + billing + filing — remains identical; AI handles the first draft and compliance checks so the attorney focuses on high-value legal analysis.',
     },
     {
       id: 'it',
@@ -147,6 +150,7 @@ export const data = {
         { metric: '8',        label: 'Scripts built (Batch, VBScript, PowerShell)' },
         { metric: '0',        label: 'Required physical presence on target machines' },
       ],
+      wouldDoDifferently: 'The psexec toolkit was state-of-the-art for 2009. Today I\'d deploy an MDM/RMM platform (Fleet or NinjaOne) with AI-driven patch management that predicts update conflicts before deployment. Instead of VBScript/WMI, I\'d use infrastructure-as-code (Ansible) to define lab configurations declaratively — version-controlled, reproducible, self-documenting. Deployment cadence would shift from monthly manual pushes to continuous, event-driven updates triggered by new software releases. AI monitoring would detect lab machine anomalies (disk failures, performance degradation) before they impact students. The core principle — zero-touch deployment — remains; the tooling has evolved from scripts to orchestrated, self-healing infrastructure.',
     },
   ],
 

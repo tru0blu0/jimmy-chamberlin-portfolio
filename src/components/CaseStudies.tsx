@@ -97,6 +97,17 @@ function CaseCard({ study, index, isOpen, onClick }: {
                     <p className="text-text-secondary leading-relaxed">{study.approach}</p>
                   </div>
 
+                  {'wouldDoDifferently' in study && (study as {wouldDoDifferently?: string}).wouldDoDifferently && (
+                    <div className="bg-bg-surface border border-amber-base/10 rounded-lg p-5">
+                      <h4 className="font-mono text-[9px] tracking-[0.2em] text-amber-glow uppercase mb-3">
+                        What I'd Do Differently Today
+                      </h4>
+                      <p className="text-text-secondary leading-relaxed text-sm">
+                        {(study as {wouldDoDifferently?: string}).wouldDoDifferently}
+                      </p>
+                    </div>
+                  )}
+
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 pt-2">
                     {study.tags.map((tag) => (
