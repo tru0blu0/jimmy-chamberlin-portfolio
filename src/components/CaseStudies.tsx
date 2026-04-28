@@ -48,6 +48,11 @@ function CaseCard({ study, index, isOpen, onClick }: {
           <h3 className="font-display font-bold text-xl md:text-2xl text-text-primary group-hover:text-amber-beam transition-colors leading-snug text-balance">
             {study.headline}
           </h3>
+          {'company' in study && (study as {company?: string}).company && (
+            <p className="font-mono text-[9px] tracking-[0.08em] text-text-muted mt-1.5 uppercase">
+              {(study as {company?: string}).company}
+            </p>
+          )}
         </div>
 
         {/* Year */}
