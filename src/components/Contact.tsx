@@ -116,7 +116,7 @@ export default function Contact() {
 
           {data.available && (
             <p className="font-mono text-[10px] tracking-[0.1em] text-amber-base/70">
-              ● {data.availableText} — Typically responds within 1 business day
+              ● {data.availableText} · {data.location} — Typically responds within 1 business day
             </p>
           )}
         </motion.div>
