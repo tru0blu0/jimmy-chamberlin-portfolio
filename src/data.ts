@@ -17,7 +17,7 @@ export const data = {
     { value: 16, suffix: '+', label: 'Years Operations Leadership', prefix: '' },
     { value: 4,  suffix: '',  label: 'Industries of Operations Experience', prefix: '' },
     { value: 71, suffix: '%', label: 'Revenue Growth at Peak Engagement', prefix: '' },
-    { value: 31.7, suffix: '%', label: 'COGS Held — 89 Consecutive Weeks', prefix: '' },
+    { value: 32, suffix: '%', label: 'COGS Held — 89 Consecutive Weeks', prefix: '' },
   ],
 
   experience: [

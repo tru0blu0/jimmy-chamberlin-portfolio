@@ -58,7 +58,7 @@ export default function Hero() {
 
         {/* Main headline */}
         <motion.h1
-          className="text-display-xl font-display font-extrabold text-text-primary leading-none tracking-tight mb-0"
+          className="text-display-lg md:text-display-xl font-display font-extrabold text-text-primary leading-none tracking-tight mb-0"
           variants={container}
           initial="hidden"
           animate="show"
