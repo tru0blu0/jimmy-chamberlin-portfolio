@@ -1,13 +1,13 @@
 export const data = {
   name: 'Jimmy Chamberlin',
   title: 'Operations Architect',
-  tagline: ['Building systems', 'that scale.'],
+  tagline: ['Operations that run', 'after I\'m gone.'],
   subtitle: 'Business Operations Leader · 16 Years · BBA',
   available: true,
   availableText: 'AVAILABLE FOR HIRE',
   email: 'jimchamberlin7@gmail.com',
   linkedin: 'https://www.linkedin.com/in/chamberlin-ops/',
-  github: 'https://github.com/tru0blu0',
+  github: null,
   location: 'United States',
   // Canonical site URL — update here when domain changes.
   // Used by Footer, JSON-LD, and any component that needs the full URL.
@@ -15,7 +15,7 @@ export const data = {
 
   stats: [
     { value: 16, suffix: '+', label: 'Years Operations Leadership', prefix: '' },
-    { value: 4,  suffix: '',  label: 'Industries Mastered',          prefix: '' },
+    { value: 4,  suffix: '',  label: 'Industries of Operations Experience', prefix: '' },
     { value: 71, suffix: '%', label: 'Revenue Growth at Peak Engagement', prefix: '' },
     { value: 31.7, suffix: '%', label: 'COGS Held — 89 Consecutive Weeks', prefix: '' },
   ],
@@ -23,7 +23,7 @@ export const data = {
   experience: [
     {
       domain: 'Legal Operations',
-      role: 'Legal Assistant',
+      role: 'Business Operations Specialist',
       company: 'Kyser Law, PLC',
       period: 'Jan 2021 – Sep 2025',
       icon: '⚖',
