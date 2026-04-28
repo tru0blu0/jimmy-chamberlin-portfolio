@@ -178,8 +178,6 @@ export const data = {
     '·',
     'Samsung Tab A Fleet Deployment',
     '·',
-    'FMCSA MC-2979 Broker Authority',
-    '·',
     'HOS Compliance',
     '·',
     'SDDC DoD Certified Carrier',
