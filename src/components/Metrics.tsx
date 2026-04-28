@@ -68,7 +68,7 @@ export default function Metrics() {
           {data.stats.map((stat, i) => (
             <motion.div
               key={i}
-              className="bg-bg-deep p-8 md:p-12 group hover:bg-bg-surface transition-colors duration-300"
+              className={`metric-card bg-bg-deep p-8 md:p-12 group hover:bg-bg-surface transition-colors duration-300${inView ? ' in-view' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

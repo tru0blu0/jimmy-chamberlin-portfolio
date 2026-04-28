@@ -137,6 +137,78 @@
     opacity: 1;
   }
 
+  /* ═══ Metric cards — animated amber border sweep ═══
+     Rotating conic-gradient disc clipped to card border via overflow:hidden.
+     Each card gets a different animation-delay via nth-child.
+  */
+  .metric-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    width: 400%;
+    height: 400%;
+    top: -150%;
+    left: -150%;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 270deg,
+      rgba(212,134,10,0.04) 274deg,
+      rgba(212,134,10,0.18) 284deg,
+      rgba(245,166,35,0.55) 292deg,
+      rgba(255,219,128,0.85) 296deg,  /* sweep head */
+      rgba(245,166,35,0.40) 300deg,
+      rgba(212,134,10,0.12) 310deg,
+      transparent 318deg,
+      transparent 360deg
+    );
+    animation: card-orbit 7s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Show sweep when the section comes into view — toggled via JS class */
+  .metric-card.in-view::before {
+    opacity: 1;
+  }
+
+  /* Ensure card content sits above the sweep layer */
+  .metric-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Stagger: each nth card starts the orbit at a different angle offset */
+  .metric-card:nth-child(1)::before { animation-delay: 0s; }
+  .metric-card:nth-child(2)::before { animation-delay: -1.75s; }
+  .metric-card:nth-child(3)::before { animation-delay: -3.5s; }
+  .metric-card:nth-child(4)::before { animation-delay: -5.25s; }
+
+  /* On hover: intensify the sweep */
+  .metric-card:hover::before {
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 260deg,
+      rgba(212,134,10,0.08) 266deg,
+      rgba(212,134,10,0.30) 278deg,
+      rgba(245,166,35,0.75) 288deg,
+      rgba(255,219,128,1.00) 293deg,
+      rgba(245,166,35,0.55) 298deg,
+      rgba(212,134,10,0.18) 308deg,
+      transparent 316deg,
+      transparent 360deg
+    );
+    animation-duration: 4s;
+  }
+
   /* On amber CTA fills, swap to a dark inner ring so the focus stays visible */
   .amber-cta:focus-visible {
     outline-color: #0A0B0F;
