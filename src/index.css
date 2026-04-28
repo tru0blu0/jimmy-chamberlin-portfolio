@@ -45,50 +45,95 @@
     border-radius: 2px;
   }
   /* ── Amber CTA backlit panel effect ── */
+  /* ═══ Amber CTA — Orbit Comet Border + Backlit Panel ═══
+     Technique from OrbitGlowButton (Framer) — conic-gradient disc
+     clipped to border-only via CSS mask XOR; backlight blob via ::after.
+  */
   .amber-cta {
     position: relative;
     isolation: isolate;
-    /* 4-layer shadow stack: border-amplifier | near-bloom | atmospheric-backlight | grounding-drop */
+    /* Ambient backlight: border-amplifier | near-bloom | atmospheric | grounding */
     box-shadow:
       inset 0 1px 0 rgba(255,213,128,0.22),
-      0 0 0 1px rgba(212,134,10,0.45),
-      0 0 14px 3px rgba(212,134,10,0.40),
-      0 0 50px 10px rgba(212,134,10,0.18),
+      0 0 0 1px rgba(212,134,10,0.30),
+      0 0 14px 3px rgba(212,134,10,0.30),
+      0 0 50px 10px rgba(212,134,10,0.15),
       0 4px 20px rgba(0,0,0,0.55);
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    transition: box-shadow 0.35s ease, transform 0.25s cubic-bezier(.34,1.56,.64,1);
+    filter: drop-shadow(0 0 10px rgba(212,134,10,0.45)) drop-shadow(0 0 30px rgba(212,134,10,0.18));
   }
 
-  /* The physical light blob — sits behind the button */
+  /* ── Orbiting comet disc (::before) — clipped to border ring only ── */
+  .amber-cta::before {
+    content: '';
+    position: absolute;
+    /* 500%×500% oversized disc centered at -200%,-200% so its edge aligns with button border */
+    width: 500%;
+    height: 500%;
+    top: -200%;
+    left: -200%;
+    border-radius: 50%; /* disc is circular — its edge passes the button boundary */
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 260deg,
+      rgba(212,134,10,0.08) 264deg,
+      rgba(212,134,10,0.22) 272deg,
+      rgba(212,134,10,0.55) 282deg,
+      rgba(245,166,35,0.90) 290deg,
+      rgba(255,219,128,1.00) 294deg,   /* comet head */
+      rgba(245,166,35,0.75) 298deg,
+      rgba(212,134,10,0.30) 306deg,
+      rgba(212,134,10,0.08) 316deg,
+      transparent 322deg,
+      transparent 360deg
+    );
+    /* Clip to show ONLY the border ring — XOR mask makes a "donut" */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1.5px;
+    animation: orbit-spin 3.5s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    /* Duplicate border-radius for the disc clip */
+  }
+
+  /* ── Blurred glow copy behind (soft comet trail backlight) ── */
   .amber-cta::after {
     content: '';
     position: absolute;
-    inset: -6px;
+    inset: -8px;
     z-index: -1;
-    border-radius: 4px;
+    border-radius: 6px;
     background: radial-gradient(
       ellipse 110% 90% at 50% 58%,
-      rgba(212,134,10,0.65) 0%,
-      rgba(212,134,10,0.25) 45%,
+      rgba(212,134,10,0.55) 0%,
+      rgba(212,134,10,0.20) 45%,
       transparent 72%
     );
-    filter: blur(14px);
-    opacity: 0.85;
-    transition: filter 0.3s ease, inset 0.3s ease, opacity 0.3s ease;
+    filter: blur(16px);
+    opacity: 0.80;
+    transition: filter 0.35s ease, inset 0.35s ease, opacity 0.35s ease;
   }
 
   .amber-cta:hover {
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.03);
     box-shadow:
       inset 0 1px 0 rgba(255,213,128,0.30),
-      0 0 0 1px rgba(245,166,35,0.65),
-      0 0 20px 5px rgba(245,166,35,0.55),
-      0 0 70px 18px rgba(212,134,10,0.28),
+      0 0 0 1px rgba(245,166,35,0.50),
+      0 0 20px 5px rgba(245,166,35,0.45),
+      0 0 70px 18px rgba(212,134,10,0.25),
       0 6px 28px rgba(0,0,0,0.65);
+    filter: drop-shadow(0 0 16px rgba(245,166,35,0.70)) drop-shadow(0 0 50px rgba(212,134,10,0.30));
   }
 
   .amber-cta:hover::after {
-    filter: blur(20px);
-    inset: -10px;
+    filter: blur(22px);
+    inset: -12px;
     opacity: 1;
   }
 
