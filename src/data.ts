@@ -5,7 +5,7 @@ export const data = {
   subtitle: 'Business Operations Leader · 16 Years · BBA',
   available: true,
   availableText: 'AVAILABLE FOR HIRE',
-  email: 'jimmy@jimmychamberlin.com',
+  email: 'jimchamberlin7@gmail.com',
   linkedin: 'https://www.linkedin.com/in/chamberlin-ops/',
   github: 'https://github.com/tru0blu0',
   location: 'United States',
