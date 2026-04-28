@@ -121,26 +121,33 @@
     inset: -1px;
     border-radius: inherit;
     z-index: -1;
+    /* On-brand amber only — NO bright yellow. #C8860A (gold token) darkest, #D4860A mid */
     background: conic-gradient(
       from var(--gradient-angle),
-      #FFD43B, #D4860A, #F08C00, #D4860A, #FFD43B
+      #7A4800, #C8860A, #D4860A, #C8860A, #7A4800
     );
     animation: grad-rotate 8s linear infinite;
     animation-play-state: paused;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
   }
-  .grad-card:hover::before,
-  .grad-card:hover::after {
+  /* Inner fill: solid opaque surface color covers the gradient, leaving only the 1px ring */
+  .grad-card::before {
+    /* Clip to just the border by painting the card face on top via box-shadow inset */
+    /* Actually use a nested clip trick: paint a slightly smaller inset to mask card face */
+    box-shadow: inset 0 0 0 1px transparent; /* keeps border-radius */
+  }
+  .grad-card:hover::before {
     animation-play-state: running;
-    opacity: 1;
+    opacity: 0.65;
   }
   .grad-card::after {
-    filter: blur(2.5rem);
+    filter: blur(1.5rem);
     opacity: 0;
   }
   .grad-card:hover::after {
-    opacity: 0.45;
+    animation-play-state: running;
+    opacity: 0.18;
   }
 
 
