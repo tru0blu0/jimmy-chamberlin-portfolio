@@ -6,7 +6,7 @@ export const data = {
   available: true,
   availableText: 'AVAILABLE FOR HIRE',
   email: 'jimmy@jimmychamberlin.com',
-  linkedin: 'https://linkedin.com/in/jimmychamberlin',
+  linkedin: 'https://www.linkedin.com/in/chamberlin-ops/',
   github: 'https://github.com/tru0blu0',
   location: 'United States',
   // Canonical site URL — update here when domain changes.
