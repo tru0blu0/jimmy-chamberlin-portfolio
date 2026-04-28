@@ -165,7 +165,7 @@ export const data = {
       quote: "Jimmy built our freight brokerage operation from absolute zero. He secured our FMCSA authority, selected and implemented our TMS, got every truck ELD-compliant ahead of the federal deadline, and built the carrier onboarding and compliance systems from scratch. In three years under his operational management, we had zero FMCSA enforcement actions and qualified as an SDDC DoD Certified Carrier. He didn't just do the work — he documented it so thoroughly that his successor could step in without missing a beat.",
       name: 'Ryan Frasier',
       title: 'General Manager',
-      company: 'J&J Auto Express, LLC',
+      company: 'J&J Freight Logistics, LLC',
       caseId: 'logistics',
     },
     {
