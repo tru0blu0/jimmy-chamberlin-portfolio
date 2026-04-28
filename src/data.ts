@@ -12,7 +12,7 @@ export const data = {
   location: 'United States',
   // Canonical site URL — update here when domain changes.
   // Used by Footer, JSON-LD, and any component that needs the full URL.
-  siteUrl: 'https://tru0blu0.github.io/jimmy-chamberlin-portfolio',
+  siteUrl: 'https://tru0blu0.github.io/portfolio',
 
   stats: [
     { value: 16, suffix: '+', label: 'Years Operations Leadership', prefix: '' },

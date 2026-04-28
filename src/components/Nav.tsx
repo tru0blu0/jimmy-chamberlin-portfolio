@@ -88,7 +88,7 @@ export default function Nav() {
             </div>
           )}
           <a
-            href="/jimmy-chamberlin-portfolio/Jimmy_Chamberlin_Master_Resume.docx"
+            href="/portfolio/Jimmy_Chamberlin_Master_Resume.docx"
             download
             className="font-mono text-[10px] tracking-[0.12em] uppercase px-4 py-2 border border-white/[0.12] text-text-secondary hover:text-text-primary hover:border-white/30 transition-all duration-200 rounded-sm"
           >

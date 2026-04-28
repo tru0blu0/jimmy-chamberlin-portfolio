@@ -16,6 +16,6 @@ git push origin master
 
 Write-Host ""
 Write-Host "=> Pushed! GitHub Actions will deploy to:" -ForegroundColor Green
-Write-Host "   https://tru0blu0.github.io/jimmy-chamberlin-portfolio/" -ForegroundColor White
+Write-Host "   https://tru0blu0.github.io/portfolio/" -ForegroundColor White
 Write-Host ""
-Write-Host "   Watch: https://github.com/tru0blu0/jimmy-chamberlin-portfolio/actions" -ForegroundColor Gray
+Write-Host "   Watch: https://github.com/tru0blu0/portfolio/actions" -ForegroundColor Gray

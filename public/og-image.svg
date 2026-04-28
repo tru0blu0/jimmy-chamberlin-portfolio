@@ -85,7 +85,7 @@
   </g>
 
   <!-- URL -->
-  <text x="600" y="602" font-family="'JetBrains Mono', monospace" font-size="11" fill="#4B5563" letter-spacing="1" text-anchor="middle">tru0blu0.github.io/jimmy-chamberlin-portfolio</text>
+  <text x="600" y="602" font-family="'JetBrains Mono', monospace" font-size="11" fill="#4B5563" letter-spacing="1" text-anchor="middle">tru0blu0.github.io/portfolio</text>
 
   <!-- Bottom border accent -->
   <line x1="0" y1="618" x2="1200" y2="618" stroke="#D4860A" stroke-width="2" stroke-opacity="0.3"/>
