@@ -20,8 +20,7 @@ export default function Hero() {
   const y = reduceMotion ? '0%' : yMotion
   const opacity = reduceMotion ? 1 : opacityMotion
 
-  const words1 = data.tagline[0].split(' ')
-  const words2 = data.tagline[1].split(' ')
+  const phrases = data.tagline.split('. ').filter(Boolean)
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-32">
@@ -56,30 +55,34 @@ export default function Hero() {
           )}
         </motion.div>
 
-        {/* Main headline */}
+        {/* Main headline — three-phrase tagline */}
         <motion.h1
-          className="text-display-lg md:text-display-xl font-display font-extrabold text-text-primary leading-none tracking-tight mb-0"
+          className="text-display-lg md:text-display-xl font-display font-extrabold text-text-primary leading-[0.95] tracking-tight mb-4"
           variants={container}
           initial="hidden"
           animate="show"
         >
-          {words1.map((w, i) => (
-            <span key={i} className="overflow-hidden inline-block mr-[0.18em]">
-              <motion.span className="inline-block" variants={line}>{w}</motion.span>
-            </span>
-          ))}
-          <br />
-          {words2.map((w, i) => (
-            <span key={i} className="overflow-hidden inline-block mr-[0.18em]">
+          {phrases.map((phrase, i) => (
+            <span key={i} className="overflow-hidden block">
               <motion.span
-                className={`inline-block ${i === words2.length - 1 ? 'text-amber-base' : ''}`}
+                className={`inline-block ${i === 0 ? 'text-amber-glow' : i === 1 ? 'text-teal-glow' : 'text-text-primary'}`}
                 variants={line}
               >
-                {w}
+                {phrase}.
               </motion.span>
             </span>
           ))}
         </motion.h1>
+
+        {/* Tagline subtitle */}
+        <motion.p
+          className="font-mono text-[11px] md:text-xs tracking-[0.15em] uppercase text-teal-base/60 mb-0"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        >
+          {data.taglineSub}
+        </motion.p>
 
         {/* Description row */}
         <div className="mt-10 flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
