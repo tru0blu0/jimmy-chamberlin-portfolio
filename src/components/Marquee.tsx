@@ -9,7 +9,7 @@ export default function Marquee() {
   const items = reduceMotion ? data.credibilityMarquee : [...data.credibilityMarquee, ...data.credibilityMarquee]
 
   return (
-    <div className="relative z-20 w-full overflow-hidden border-y border-white/[0.06] bg-bg-surface py-4 select-none">
+    <div className="relative z-20 w-full overflow-hidden border-y border-white/[0.06] bg-bg-surface py-8 min-h-[72px] flex items-center select-none">
       <div className={`flex flex-wrap justify-center gap-6 ${reduceMotion ? '' : 'w-max animate-marquee flex-nowrap'}`}>
         {items.map((item, i) => (
           <span
