@@ -118,9 +118,12 @@ export default function About() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-display font-bold text-text-primary">BBA — Business Administration</div>
+                  <div className="font-display font-bold text-text-primary">{data.education.degree}</div>
                   <div className="font-mono text-[10px] tracking-[0.1em] text-text-muted uppercase mt-1">
-                    Bachelor of Business Administration
+                    {data.education.institution} · {data.education.year}
+                  </div>
+                  <div className="font-mono text-[10px] tracking-[0.08em] text-text-muted mt-1">
+                    Focus: {data.education.focus}
                   </div>
                 </div>
               </div>
