@@ -57,7 +57,7 @@ export default function Hero() {
 
         {/* Main headline — three-phrase tagline */}
         <motion.h1
-          className="text-display-lg font-display font-extrabold text-text-primary leading-[0.95] tracking-tight mb-4"
+          className="text-[clamp(1.75rem,5vw,4.5rem)] font-display font-extrabold text-text-primary leading-[0.95] tracking-tight mb-4"
           variants={container}
           initial="hidden"
           animate="show"
