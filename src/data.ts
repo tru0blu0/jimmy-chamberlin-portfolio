@@ -1,8 +1,8 @@
 export const data = {
   name: 'Jimmy Chamberlin',
   title: 'Operations Architect',
-  tagline: 'Better operations. Lasting results. Proven approach.',
-  taglineSub: 'The framework of success',
+  tagline: 'Architecting Systemic Resilience. Engineering Precision into Every Operation.',
+  taglineSub: '',
   subtitle: 'Business Operations Leader · 16 Years · BBA · AI-Ready',
   available: true,
   availableText: 'AVAILABLE FOR HIRE',
