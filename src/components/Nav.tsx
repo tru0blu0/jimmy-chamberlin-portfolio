@@ -54,11 +54,10 @@ export default function Nav() {
         <a href="#" className="flex items-center gap-3 group" aria-label={`${data.name} — home`}>
           <div className="w-8 h-8 relative">
             <svg viewBox="0 0 32 32" fill="none" className="w-full h-full" aria-hidden="true" focusable="false">
-              <rect width="32" height="32" rx="6" fill="#151E2E" stroke="#1B7A8A" strokeWidth="0.75" strokeOpacity="0.3"/>
-              {/* J: stem + hook — amber */}
-              <path d="M13 7 L13 20.5 Q13 26 9 26 Q5.5 26 5.5 22" stroke="#D4860A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
-              {/* C: open ring — teal */}
-              <path d="M27 10 A8 8 0 1 0 27 22" stroke="#1B7A8A" strokeWidth="3.5" strokeLinecap="round"/>
+              <rect width="32" height="32" rx="5" fill="#0A0E17"/>
+              <path d="M13 5 L13 23 Q13 28 9 28" stroke="#D4860A" strokeWidth="4.5" strokeLinecap="round"/>
+              <circle cx="13" cy="5" r="3.5" fill="#1B7A8A"/>
+              <line x1="5" y1="28" x2="11" y2="28" stroke="#1B7A8A" strokeWidth="2.5" strokeLinecap="round"/>
             </svg>
           </div>
         </a>
