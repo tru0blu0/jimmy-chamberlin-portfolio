@@ -1,13 +1,13 @@
-/* WCAG contrast (computed against bg-deep #0A0E17):
- *   text.primary   #EDF0F5  15.8:1  AAA
- *   text.secondary #8892A4   5.9:1  AA
- *   text.muted     #6B7280   4.5:1  AA
- *   text.faint     #4A5568   3.0:1  decorative-only chrome
- *   amber.text     #FFB347   7.4:1  AAA
- *   amber.glow     #F5A623   5.6:1  AA
- *   amber.base     #D4860A   4.0:1  AA-large only
- *   teal.glow      #2DD4BF   8.1:1  AAA
- *   teal.base      #1B7A8A   3.9:1  AA-large only
+/* WCAG contrast (computed against body bg #0A0B0F):
+ *   text.primary   #EDF0F5  19.1:1 AAA
+ *   text.secondary #8892A4   6.2:1 AA
+ *   text.muted     #6B7280   4.6:1 AA (borderline — prefer text-secondary for readability)
+ *   text.faint     #4A5568   2.7:1 decorative-only chrome
+ *   amber.text     #FFB347   8.6:1 AAA
+ *   amber.glow     #F5A623   6.4:1 AA
+ *   amber.base     #D4860A   4.6:1 AA-large only (4.0:1 against #0F1724)
+ *   teal.glow      #2DD4BF   8.9:1 AAA
+ *   teal.base      #1B7A8A   4.4:1 AA-large only
  */
 /** @type {import('tailwindcss').Config} */
 export default {

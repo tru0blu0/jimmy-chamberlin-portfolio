@@ -42,7 +42,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
 
         {/* Headline */}
         <div className="flex-1 min-w-0">
-          <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-text-muted mb-2 md:hidden">
+          <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-text-secondary mb-2 md:hidden">
             {study.domain} · {study.year}
           </div>
           <h3 className="font-display font-bold text-xl md:text-2xl text-text-primary group-hover:text-amber-beam transition-colors leading-snug text-balance">
@@ -56,7 +56,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
         </div>
 
         {/* Year */}
-        <span className="font-mono text-[11px] text-text-muted shrink-0 hidden md:block">{study.year}</span>
+        <span className="font-mono text-[11px] text-text-secondary shrink-0 hidden md:block">{study.year}</span>
 
         {/* Toggle icon */}
         <div aria-hidden="true" className="shrink-0 w-8 h-8 border border-white/[0.1] rounded-sm flex items-center justify-center text-text-secondary group-hover:border-amber-base/40 group-hover:text-amber-text transition-all mt-0.5">

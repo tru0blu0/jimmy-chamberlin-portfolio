@@ -74,7 +74,7 @@ export default function Contact() {
         >
           <a
             href={`mailto:${data.email}`}
-            className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-bg-deep font-display font-bold text-sm tracking-wide px-8 py-4 rounded-sm transition-all duration-200"
+            className="amber-cta group inline-flex items-center gap-3 bg-amber-base hover:bg-amber-glow text-black font-display font-bold text-sm tracking-wide px-8 py-4 rounded-sm transition-all duration-200"
           >
             SEND AN EMAIL
             <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>

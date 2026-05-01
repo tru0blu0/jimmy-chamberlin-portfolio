@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-28"
+      className="relative min-h-[100svh] flex items-center overflow-hidden pt-20 pb-28"
     >
       {/* ── Cinematic key light — single dramatic source from upper-right ── */}
       <div
@@ -42,7 +42,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 90% 70% at 50% 40%, transparent 40%, rgba(8,8,12,0.55) 100%)',
+            'radial-gradient(ellipse 90% 70% at 50% 40%, transparent 55%, rgba(8,8,12,0.40) 100%)',
         }}
       />
 
@@ -128,7 +128,7 @@ export default function Hero() {
 
           <a
             href="#contact"
-            className="font-mono text-[11px] tracking-[0.15em] uppercase text-text-secondary hover:text-text-primary transition-colors duration-300"
+            className="font-mono text-[11px] tracking-[0.15em] uppercase text-text-secondary hover:text-text-primary transition-colors duration-300 py-2"
           >
             {data.heroSecondary}
           </a>

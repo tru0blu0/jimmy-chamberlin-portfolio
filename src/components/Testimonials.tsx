@@ -60,7 +60,7 @@ export default function Testimonials() {
                 <div className="font-display font-bold text-text-primary text-sm">
                   {t.name}
                 </div>
-                <div className="font-mono text-[10px] tracking-[0.06em] text-text-muted mt-1">
+                <div className="font-mono text-[10px] tracking-[0.06em] text-text-secondary mt-1">
                   {t.title}
                 </div>
                 <div className="font-mono text-[10px] tracking-[0.06em] text-teal-base/60 mt-0.5">
