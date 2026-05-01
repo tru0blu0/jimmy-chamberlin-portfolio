@@ -46,10 +46,10 @@ export default function About() {
 
             <div className="space-y-5 text-text-secondary leading-relaxed">
               <p>
-                Over 16 years, I've operated in some of the most demanding environments a business can create —
-                high-volume logistics, multi-unit restaurants, time-critical legal operations, and enterprise IT.
-                In each, I found the same root problem: systems built for the person who designed them, not
-                for the people who run them.
+                Over 16 years, I've run operations across four industries most businesses only ever touch
+                one of — freight logistics, restaurants, legal ops, and enterprise IT. In each, I found
+                the same root problem: systems built for whoever designed them, not for the people who
+                actually run them.
               </p>
               <p>
                 I hold a BBA and bring a business-first analytical lens to operational challenges.
@@ -58,12 +58,12 @@ export default function About() {
               </p>
               <p>
                 The result is operations that survive leadership transitions, scale without breaking,
-                and generate measurable ROI — not just activity.
+                and show up in the P&L — not just in process documentation.
               </p>
               <p>
-                Now I'm applying that same systems-thinking to AI-augmented operations — identifying where
-                language models, automation agents, and predictive tooling can eliminate the friction
-                between raw data and operational decisions. Not chasing hype. Engineering outcomes.
+                Now I'm applying that same framework to AI — figuring out where language models,
+                automation, and predictive tooling can cut the manual work between raw data and an
+                actual decision. Not chasing hype. Engineering outcomes.
               </p>
             </div>
 
@@ -99,17 +99,26 @@ export default function About() {
               Core Competencies
             </h3>
 
-            <div className="flex flex-wrap gap-2">
-              {data.skills.map((skill, i) => (
-                <motion.span
-                  key={skill}
-                  className="px-4 py-2 border border-white/[0.08] text-text-secondary text-[12px] font-body hover:border-amber-base/30 hover:text-text-primary hover:bg-amber-base/[0.04] transition-all cursor-default rounded-sm"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.3 + i * 0.03, duration: 0.4 }}
-                >
-                  {skill}
-                </motion.span>
+            <div className="space-y-6">
+              {data.skillCategories.map((cat, ci) => (
+                <div key={cat.label}>
+                  <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-amber-text/60 mb-2">
+                    {cat.label}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map((skill, si) => (
+                      <motion.span
+                        key={skill}
+                        className="px-3 py-1.5 border border-white/[0.08] text-text-secondary text-[11px] font-body hover:border-amber-base/30 hover:text-text-primary hover:bg-amber-base/[0.04] transition-all cursor-default rounded-sm"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={inView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ delay: 0.3 + (ci * 4 + si) * 0.025, duration: 0.4 }}
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
 

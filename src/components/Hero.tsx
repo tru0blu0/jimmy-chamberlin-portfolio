@@ -45,6 +45,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
+          <span className="section-number">01 /</span>
           <div className="h-px w-8 bg-amber-base" aria-hidden="true" />
           <span className="section-number">{data.subtitle}</span>
           {data.available && (
@@ -74,16 +75,6 @@ export default function Hero() {
           ))}
         </motion.h1>
 
-        {/* Tagline subtitle */}
-        <motion.p
-          className="font-mono text-[11px] md:text-xs tracking-[0.15em] uppercase text-teal-base/60 mb-0"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          {data.taglineSub}
-        </motion.p>
-
         {/* Description row */}
         <div className="mt-10 flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
           <motion.p
@@ -92,10 +83,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
           >
-            I build the operational infrastructure that turns complex, fragmented processes into
-            systems that work — reliably, repeatedly, and at scale. Now layering in AI-augmented
-            workflows: LLM-powered document processing, automated compliance monitoring, and
-            agent-driven decision support. Same architectural rigor — modern tooling.
+            {data.heroBio}
           </motion.p>
 
           <motion.div
@@ -139,11 +127,15 @@ export default function Hero() {
 
         {/* Experience pills */}
         <motion.div
-          className="mt-20 flex flex-wrap gap-2"
+          className="mt-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
+          <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-text-muted mb-4">
+            Experience
+          </div>
+          <div className="flex flex-wrap gap-2">
           {data.experience.map((exp) => (
             <div
               key={exp.domain}
@@ -156,6 +148,7 @@ export default function Hero() {
               </span>
             </div>
           ))}
+          </div>
         </motion.div>
 
       </motion.div>

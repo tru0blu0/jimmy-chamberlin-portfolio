@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { data } from '../data'
 
@@ -98,7 +98,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
                   </div>
 
                   {'wouldDoDifferently' in study && (study as {wouldDoDifferently?: string}).wouldDoDifferently && (
-                    <div className="bg-bg-surface border border-teal-base/20 rounded-lg p-5">
+                    <div className="bg-bg-surface border border-teal-base/20 border-l-2 border-l-teal-base rounded-lg p-5">
                       <h4 className="font-mono text-[9px] tracking-[0.2em] text-teal-glow uppercase mb-3">
                         What I'd Do Differently Today
                       </h4>
@@ -113,7 +113,7 @@ function CaseCard({ study, index, isOpen, onClick }: {
                     {study.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="font-mono text-[9px] tracking-[0.1em] px-3 py-1 bg-bg-raised text-text-muted border border-white/[0.06] rounded-sm uppercase"
+                        className="font-mono text-[11px] tracking-[0.08em] px-3 py-1 bg-bg-raised text-text-secondary border border-white/[0.08] rounded-sm uppercase"
                       >
                         {tag}
                       </span>
@@ -150,6 +150,16 @@ export default function CaseStudies() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-10%' })
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const { caseId } = (e as CustomEvent<{ caseId: string }>).detail
+      const idx = data.caseStudies.findIndex(s => s.id === caseId)
+      if (idx !== -1) setOpenIndex(idx)
+    }
+    window.addEventListener('open-case-study', handler)
+    return () => window.removeEventListener('open-case-study', handler)
+  }, [])
 
   return (
     <section id="work" ref={ref} aria-labelledby="case-studies-heading" className="py-28 md:py-36 relative">

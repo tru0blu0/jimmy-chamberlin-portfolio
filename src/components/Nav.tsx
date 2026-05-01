@@ -5,6 +5,7 @@ import { data } from '../data'
 const navItems = [
   { label: 'IMPACT', href: '#metrics' },
   { label: 'WORK', href: '#work' },
+  { label: 'TESTIMONIALS', href: '#testimonials' },
   { label: 'APPROACH', href: '#approach' },
   { label: 'ABOUT', href: '#about' },
   { label: 'CONTACT', href: '#contact' },

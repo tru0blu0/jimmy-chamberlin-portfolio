@@ -72,9 +72,8 @@ export default function Testimonials() {
               <a
                 href="#work"
                 className="mt-4 inline-flex items-center gap-2 font-mono text-[9px] tracking-[0.1em] uppercase text-teal-base/50 hover:text-teal-glow transition-colors group/link"
-                onClick={(e) => {
-                  // Scroll to case studies and open the relevant one
-                  // For now, just scrolls to work section
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent('open-case-study', { detail: { caseId: t.caseId } }))
                 }}
               >
                 <span>See the case study</span>

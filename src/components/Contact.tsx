@@ -61,8 +61,8 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
         >
-          Whether you&rsquo;re scaling an operation, cleaning up a broken process, or building a new system
-          from scratch — I&rsquo;d like to hear about it.
+          If you&rsquo;re scaling an operation, inheriting a broken process, or building something
+          from nothing — I&rsquo;d like to hear about it.
         </motion.p>
 
         {/* Primary CTAs */}

@@ -2,13 +2,12 @@ export const data = {
   name: 'Jimmy Chamberlin',
   title: 'Operations Architect',
   tagline: 'Architecting Systemic Resilience. Engineering Precision into Every Operation.',
-  taglineSub: '',
   subtitle: 'Business Operations Leader · 16 Years · BBA · AI-Ready',
+  heroBio: 'I build the operational infrastructure that turns fragmented, dysfunctional processes into systems that actually hold — reliably, at scale, through leadership changes. Now applying AI tools where they cut real friction: document processing, compliance tracking, decision support. Same architectural discipline — modern tooling.',
   available: true,
   availableText: 'AVAILABLE FOR HIRE',
   email: 'jimchamberlin7@gmail.com',
   linkedin: 'https://www.linkedin.com/in/chamberlin-ops/',
-  github: null,
   location: 'United States',
   // Canonical site URL — update here when domain changes.
   // Used by Footer, JSON-LD, and any component that needs the full URL.
@@ -17,8 +16,8 @@ export const data = {
   stats: [
     { value: 16, suffix: '+', label: 'Years Operations Leadership', prefix: '' },
     { value: 4,  suffix: '',  label: 'Industries of Operations Experience', prefix: '' },
-    { value: 71, suffix: '%', label: 'Revenue Growth at Peak Engagement', prefix: '' },
-    { value: 32, suffix: '%', label: 'COGS Held — 89 Consecutive Weeks', prefix: '' },
+    { value: 71, suffix: '%', label: 'Revenue Growth — The Pointe Bar & Grill', prefix: '' },
+    { value: 31.7, suffix: '%', label: 'COGS Held — 89 Consecutive Weeks', prefix: '' },
   ],
 
   experience: [
@@ -52,41 +51,35 @@ export const data = {
     },
   ],
 
-  skills: [
-    // Financial & Cost
-    'P&L Ownership',
-    'COGS & Margin Control',
-    'Financial Modeling',
-    'Invoice Reconciliation',
-    // Vendor & Supply Chain
-    'Vendor Spend Management',
-    'Multi-Vendor Sourcing',
-    'Carrier Network Development',
-    // Operations & Process
-    'Process Engineering',
-    'SOP Development',
-    'Operational Due Diligence',
-    'Labor Scheduling & Staffing',
-    // Logistics & Compliance
-    'TMS Implementation',
-    'Freight Brokerage Operations',
-    'ELD & MDM Deployment',
-    'HOS & FMCSA Compliance',
-    'MLCC Compliance',
-    'Cross-Border Operations',
-    // Legal & Admin
-    'Legal Matter Management',
-    'Practice Management Systems',
-    'E-Filing Administration',
-    // Technology
-    'Tech Stack Selection & Integration',
-    'Remote Endpoint Management',
-    'Scripting & Workflow Automation',
-    // AI & Modern Tooling
-    'AI-Augmented Workflow Design',
-    'LLM Prompt Engineering',
-    'Agentic Process Automation',
-    'AI-Assisted Document Processing',
+  skillCategories: [
+    {
+      label: 'Financial & Cost',
+      skills: ['P&L Ownership', 'COGS & Margin Control', 'Financial Modeling', 'Invoice Reconciliation'],
+    },
+    {
+      label: 'Vendor & Supply Chain',
+      skills: ['Vendor Spend Management', 'Multi-Vendor Sourcing', 'Carrier Network Development'],
+    },
+    {
+      label: 'Operations & Process',
+      skills: ['Process Engineering', 'SOP Development', 'Operational Due Diligence', 'Labor Scheduling & Staffing'],
+    },
+    {
+      label: 'Logistics & Compliance',
+      skills: ['TMS Implementation', 'Freight Brokerage Operations', 'ELD & MDM Deployment', 'HOS & FMCSA Compliance', 'MLCC Compliance', 'Cross-Border Operations'],
+    },
+    {
+      label: 'Legal & Admin',
+      skills: ['Legal Matter Management', 'Practice Management Systems', 'E-Filing Administration'],
+    },
+    {
+      label: 'Technology',
+      skills: ['Tech Stack Selection & Integration', 'Remote Endpoint Management', 'Scripting & Workflow Automation'],
+    },
+    {
+      label: 'AI & Modern Tooling',
+      skills: ['AI-Augmented Workflow Design', 'LLM Prompt Engineering', 'Agentic Process Automation', 'AI-Assisted Document Processing'],
+    },
   ],
 
   caseStudies: [
@@ -112,12 +105,12 @@ export const data = {
       domain: 'RESTAURANT / F&B',
       year: '2014–2016',
       headline: 'Turned operational chaos into a $1.25M engine',
-      tagline: '+71% revenue growth · COGS held 31.7% for 89 consecutive weeks · 203 vendors reconciled',
+      tagline: '+71% revenue growth · COGS held 31.7% for 89 consecutive weeks · 2,561 invoices reconciled',
       problem: 'The Pointe operated with no P&L system, no vendor controls, and no documented processes. Revenue sat at $734k and COGS ran unchecked at 36–42% with zero internal benchmarks, no invoice reconciliation, and no staffing model across 29 staff and 7 roles.',
       approach: 'Built the complete operational infrastructure: a 19-sheet Excel P&L, 30-category invoice ledger across 203 vendors, 89-week consecutive alcohol cost tracking, dual-vendor food distributor strategy (GFS + Sysco), SOPs for all 7 roles, and a 29-person staffing model — giving ownership the visibility to scale without losing cost discipline.',
       tags: ['P&L Ownership', 'COGS Reduction', 'Vendor Management', 'F&B Operations', 'SOPs', 'Excel P&L'],
       results: [
-        { metric: '+71%',   label: 'Revenue growth — $734k → $1.25M (2013–2015)' },
+        { metric: '+71%',   label: 'Revenue growth — $734k → $1.25M over tenure' },
         { metric: '31.7%',  label: 'Avg COGS held across 89 consecutive tracked weeks' },
         { metric: '$1.42M', label: 'Vendor spend tracked — 2,561 invoices reconciled' },
         { metric: '0',      label: 'MLCC compliance violations — full 28-month tenure' },
@@ -169,14 +162,14 @@ export const data = {
       caseId: 'logistics',
     },
     {
-      quote: "Jimmy took a restaurant doing $734K and turned it into a $1.25M operation. He built the P&L system from scratch — a 19-sheet Excel workbook that gave me visibility into every cost center I'd never been able to see before. He got our costs under control, implemented a dual-vendor strategy that improved our margins, and documented every process so the restaurant ran whether he was there or not. In 30 years in this business, I've never seen someone build operational infrastructure that thoroughly. Best operational hire I ever made.",
+      quote: "Jimmy took a restaurant doing $734K and turned it into a $1.25M operation. He built the P&L system from scratch — a 19-sheet Excel workbook that gave me visibility into every cost center I'd never been able to see before. He got our costs under control, brought in a second food supplier to keep our margins honest, and documented every process so the restaurant ran whether he was there or not. In 30 years in this business, I've never seen someone build a system that thoroughly. Best operational hire I ever made.",
       name: 'Joe Dunigan',
       title: 'Owner / Shareholder',
       company: 'Seven Brothers, LLC (The Pointe Bar & Grill)',
       caseId: 'restaurant',
     },
     {
-      quote: "I managed the day-to-day operations and watched Jimmy build the infrastructure that made my job possible. The SOPs he wrote for every role, the inventory tracking system he implemented, the dual-vendor strategy he negotiated — he created the entire operational playbook. Our alcohol costs stayed under 32% for nearly two straight years. Our staffing model went from guesswork to data-driven scheduling. The restaurant didn't just run better while he was there — it kept running better after he left because the systems were that solid.",
+      quote: "I managed the day-to-day operations and watched Jimmy build the infrastructure that made my job possible. The SOPs he wrote for every role, the inventory system he built, the second vendor deal he put together to keep food costs honest — he built the whole operating model from the ground up. Our alcohol costs stayed under 32% for nearly two straight years. Staffing stopped being a gut call once we had an actual model to work from. The restaurant didn't just run better while he was there — it kept running better after he left because the systems were that solid.",
       name: 'Daryl Hoskins',
       title: 'General Manager',
       company: 'The Pointe Bar & Grill (Seven Brothers, LLC)',

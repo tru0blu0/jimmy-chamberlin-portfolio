@@ -40,7 +40,6 @@ export default {
           dim: '#0F5E6A',
         },
         success: '#22C55E',
-        stat: '#60A5FA',
       },
       fontFamily: {
         display: ['Syne', 'DM Serif Display', 'system-ui', 'sans-serif'],
@@ -63,8 +62,8 @@ export default {
       },
       animation: {
         'pulse-slow': 'pulse 3s ease-in-out infinite',
-        'marquee': 'marquee 80s linear infinite',
-        'marquee2': 'marquee2 80s linear infinite',
+        'marquee': 'marquee 55s linear infinite',
+        'marquee2': 'marquee2 55s linear infinite',
         'counter': 'counter 0.8s ease-out forwards',
         'beam': 'beam 4s ease-in-out infinite',
         'grad-rotate': 'grad-rotate 8s linear infinite',
