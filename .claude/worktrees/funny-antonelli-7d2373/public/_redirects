@@ -1,5 +1,0 @@
-/*
-  GitHub Pages SPA redirect — not needed for this portfolio since there's no
-  client-side routing, but kept as a safety measure.
-  404.html approach is used instead (see public/404.html).
-*/
