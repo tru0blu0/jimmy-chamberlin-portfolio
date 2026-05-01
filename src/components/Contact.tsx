@@ -114,11 +114,17 @@ export default function Contact() {
             Connect on LinkedIn
           </a>
 
-          {data.available && (
-            <p className="font-mono text-[10px] tracking-[0.1em] text-amber-base/70">
-              ● {data.availableText} · {data.location} — Typically responds within 1 business day
-            </p>
-          )}
+          <p className="font-mono text-[10px] tracking-[0.1em] text-amber-base/70">
+            {data.location} — Typically responds within 1 business day
+          </p>
+          <a
+            href="https://trubluesolution.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 font-mono text-[10px] tracking-[0.12em] uppercase text-amber-text/70 hover:text-amber-glow transition-colors inline-flex items-center gap-1"
+          >
+            My consulting practice: Trublue Solution →
+          </a>
         </motion.div>
       </div>
     </section>

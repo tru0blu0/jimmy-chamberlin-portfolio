@@ -61,9 +61,9 @@ export default function About() {
                 and show up in the P&L — not just in process documentation.
               </p>
               <p>
-                Now I'm applying that same framework to AI — figuring out where language models,
-                automation, and predictive tooling can cut the manual work between raw data and an
-                actual decision. Not chasing hype. Engineering outcomes.
+                Now I'm applying that same framework to AI — deploying it where it cuts real
+                friction: document processing, compliance tracking, decision support. Where AI
+                fits, I engineer it in. Where it doesn't, I say so.
               </p>
             </div>
 

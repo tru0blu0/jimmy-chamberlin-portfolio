@@ -96,10 +96,12 @@ export default function Nav() {
             RESUME ↓
           </a>
           <a
-            href="#contact"
+            href="https://trubluesolution.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-mono text-[10px] tracking-[0.12em] uppercase px-4 py-2 border border-amber-base/40 text-amber-text hover:bg-amber-base/10 hover:border-amber-base transition-all duration-200 rounded-sm"
           >
-            HIRE ME
+            WORK WITH ME
           </a>
         </div>
 

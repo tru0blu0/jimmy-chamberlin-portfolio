@@ -11,6 +11,11 @@ export default function Footer() {
           {data.siteUrl.replace('https://', '')}
         </div>
         <div className="flex items-center gap-4">
+          <a href="https://trubluesolution.com" target="_blank" rel="noopener noreferrer"
+             className="font-mono text-[10px] tracking-[0.12em] uppercase text-amber-text/70 hover:text-amber-glow transition-colors">
+            Trublue Solution →
+          </a>
+          <span aria-hidden="true" className="text-text-muted">·</span>
           <a href={data.linkedin} target="_blank" rel="noopener noreferrer"
              className="font-mono text-[10px] tracking-[0.12em] uppercase text-text-muted hover:text-amber-text transition-colors">
             LinkedIn
