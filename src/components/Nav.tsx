@@ -54,10 +54,31 @@ export default function Nav() {
         <a href="#" className="flex items-center gap-3 group" aria-label={`${data.name} — home`}>
           <div className="w-8 h-8 relative">
             <svg viewBox="0 0 32 32" fill="none" className="w-full h-full" aria-hidden="true" focusable="false">
-              <rect width="32" height="32" rx="5" fill="#0A0E17"/>
-              <path d="M13 5 L13 23 Q13 28 9 28" stroke="#D4860A" strokeWidth="4.5" strokeLinecap="round"/>
-              <circle cx="13" cy="5" r="3.5" fill="#1B7A8A"/>
-              <line x1="5" y1="28" x2="11" y2="28" stroke="#1B7A8A" strokeWidth="2.5" strokeLinecap="round"/>
+              <defs>
+                <radialGradient id="jc-ag" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#F5A623" stopOpacity="0.15"/>
+                  <stop offset="60%" stopColor="#D4860A" stopOpacity="0.04"/>
+                  <stop offset="100%" stopColor="#D4860A" stopOpacity="0"/>
+                </radialGradient>
+                <linearGradient id="jc-bg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#1E2A3A"/>
+                  <stop offset="100%" stopColor="#0B101A"/>
+                </linearGradient>
+                <linearGradient id="jc-mk" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#FFD580"/>
+                  <stop offset="30%" stopColor="#F5A623"/>
+                  <stop offset="70%" stopColor="#C87808"/>
+                  <stop offset="100%" stopColor="#A05806"/>
+                </linearGradient>
+                <filter id="jc-sh" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="1.5" stdDeviation="2.5" floodColor="#000" floodOpacity="0.55"/>
+                </filter>
+              </defs>
+              <circle cx="16" cy="16" r="13.5" fill="url(#jc-ag)"/>
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#jc-bg)" filter="url(#jc-sh)"/>
+              <rect x="2.5" y="2.5" width="27" height="27" rx="7.5" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5"/>
+              <path d="M12 8 L12 21 Q12 26 9 26" stroke="url(#jc-mk)" strokeWidth="3.5" strokeLinecap="round"/>
+              <path d="M20 11 A6 6 0 1 0 20 24" stroke="url(#jc-mk)" strokeWidth="3" strokeLinecap="round"/>
             </svg>
           </div>
         </a>
