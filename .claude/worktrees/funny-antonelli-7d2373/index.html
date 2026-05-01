@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>Jimmy Chamberlin — Operations Architect</title>
+    <meta name="description" content="Jimmy Chamberlin — Operations Architect with 16+ years leading business operations in logistics, restaurant, legal, and IT. BBA. Available for hire." />
+    <meta name="keywords" content="operations leader, business devops, logistics operations, process engineering, operational excellence, supply chain, QSR operations, legal operations" />
+    <meta name="author" content="Jimmy Chamberlin" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tru0blu0.github.io/portfolio/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jimmy Chamberlin" />
+    <meta property="og:title" content="Jimmy Chamberlin — Operations Architect" />
+    <meta property="og:description" content="Operations Architect. 16+ years across logistics, restaurant, legal, and IT. +71% revenue growth, zero compliance violations, zero e-filing rejections." />
+    <meta property="og:url" content="https://tru0blu0.github.io/portfolio/" />
+    <!--
+      og:image: SVG version committed at /og-image.svg.
+      NOTE: Most social crawlers require a rasterized PNG/JPEG for og:image previews.
+      TODO (post-deploy): Screenshot /og-image.svg at 1200×630, save as /og-image.png,
+      then update this tag to point to og-image.png.
+      Recommended tool: `npx pageres` or browser screenshot at exact 1200×630.
+    -->
+    <meta property="og:image" content="https://tru0blu0.github.io/portfolio/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Jimmy Chamberlin — Operations Architect" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jimmy Chamberlin — Operations Architect" />
+    <meta name="twitter:description" content="Building systems that scale. 16+ years operational leadership across logistics, restaurant, legal, and IT." />
+    <meta name="twitter:image" content="https://tru0blu0.github.io/portfolio/og-image.svg" />
+    <meta name="twitter:image:alt" content="Jimmy Chamberlin — Operations Architect" />
+
+    <!-- JSON-LD: Person schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jimmy Chamberlin",
+      "jobTitle": "Operations Architect",
+      "description": "Business operations leader with 16+ years experience in logistics, restaurant, legal, and IT operations. BBA.",
+      "url": "https://tru0blu0.github.io/portfolio/",
+      "sameAs": [
+        "https://www.linkedin.com/in/chamberlin-ops/",
+        "https://github.com/tru0blu0"
+      ],
+      "email": "jimchamberlin7@gmail.com",
+      "knowsAbout": [
+        "Process Engineering",
+        "Supply Chain & Freight Logistics",
+        "FMCSA Compliance",
+        "TMS Implementation",
+        "P&L Ownership",
+        "COGS & Margin Control",
+        "Legal Operations",
+        "Practice Management Systems",
+        "IT Infrastructure & Deployment",
+        "Business Operations"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Baker College",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jackson",
+          "addressRegion": "MI"
+        }
+      }
+    }
+    </script>
+
+    <!-- Favicon — Vite rewrites this path using `base` at build time -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- GitHub Pages SPA redirect handler (receives redirects from 404.html) -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Vite rewrites this path using `base` at build time -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

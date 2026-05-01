@@ -1,0 +1,287 @@
+@import '@fontsource/syne/400.css';
+@import '@fontsource/syne/700.css';
+@import '@fontsource/syne/800.css';
+@import '@fontsource/dm-sans/300.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/jetbrains-mono/400.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html {
+    /* scroll-behavior: smooth removed — conflicts with Framer Motion useSpring (double-smoothing) */
+    background-color: #0A0B0F;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #F0F2F7;
+    background-color: #0A0B0F;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* overflow-x: clip instead of hidden — does NOT create scroll container, preserves GPU compositor */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: rgba(212, 134, 10, 0.45);
+    color: #FFFFFF;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0A0B0F; }
+  ::-webkit-scrollbar-thumb { background: #FFB347; border-radius: 2px; }
+
+  /* Keyboard focus ring — visible on every interactive element */
+  *:focus { outline: none; }
+  *:focus-visible {
+    outline: 2px solid #FFB347;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* ── Amber CTA backlit panel effect ── */
+  .amber-cta {
+    position: relative;
+    isolation: isolate;
+    /*
+     * Panel-mount look: the button is a dark physical plaque.
+     * A crisp amber border ring defines its edges (light escaping around the panel).
+     * A deep drop-shadow gives it elevation off the page surface.
+     * NO outer halo on the button itself — the light lives BEHIND it.
+     */
+    box-shadow:
+      0 0 0 1px rgba(212,134,10,0.60),      /* crisp amber border ring */
+      inset 0 1px 0 rgba(255,213,128,0.10), /* faint top-edge specular */
+      0 14px 44px -6px rgba(0,0,0,0.75);   /* deep elevation shadow */
+    transition: box-shadow 0.35s ease, transform 0.28s cubic-bezier(.34,1.56,.64,1);
+  }
+
+  /*
+   * The backlight blob — a wide warm pool behind and below the button.
+   * Source point is at 50% 28% (behind upper-center of button).
+   * Extends ~170% wider and ~220% taller than button bounds so the
+   * light visibly "spills" onto the surrounding dark surface.
+   */
+  .amber-cta::after {
+    content: '';
+    position: absolute;
+    left: -85%;
+    right: -85%;
+    top: -35%;
+    bottom: -120%;
+    z-index: -1;
+    background: radial-gradient(
+      ellipse 55% 45% at 50% 28%,
+      rgba(212,134,10,0.80) 0%,
+      rgba(212,134,10,0.45) 28%,
+      rgba(200,120,8,0.20)  52%,
+      rgba(180,100,0,0.06)  70%,
+      transparent 85%
+    );
+    filter: blur(24px);
+    opacity: 0.92;
+    animation: amber-breathe 2.8s ease-in-out infinite;
+    transition: bottom 0.35s ease;
+  }
+
+  @keyframes amber-breathe {
+    0%, 100% { opacity: 0.85; filter: blur(22px); }
+    50%       { opacity: 1.00; filter: blur(30px); }
+  }
+
+  /* ── GradCard rotating gradient border (adapted from AJ1732/framer-motion-template) ── */
+  /* Houdini custom property — required for CSS to animate --gradient-angle */
+  @property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  /* Animatable ring opacity — Motion whileHover drives this via CSS var */
+  @property --ring-opacity {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true; /* inherits so ::before/::after pick it up from parent */
+  }
+
+  /*
+   * .grad-card — wraps a card with a rotating amber conic-gradient border ring.
+   * ::before = solid 1px rotating ring
+   * ::after  = same ring but heavily blurred for ambient glow spill
+   * Usage: add "grad-card" class to any .card-base element.
+   * The card must have position:relative (card-base already has this via rounded-lg).
+   */
+  .grad-card {
+    position: relative;
+    isolation: isolate;
+    padding: 1px; /* 1px gap = the border ring width */
+  }
+  .grad-card::before,
+  .grad-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: -1;
+    /* On-brand amber only — NO bright yellow. #C8860A (gold token) darkest, #D4860A mid */
+    background: conic-gradient(
+      from var(--gradient-angle),
+      #7A4800, #C8860A, #D4860A, #C8860A, #7A4800
+    );
+    /* Always spinning — Motion whileHover controls visibility via --ring-opacity */
+    animation: grad-rotate 8s linear infinite;
+    opacity: var(--ring-opacity);
+  }
+  .grad-card::before {
+    /* ring only — card inner fill covers center */
+  }
+  .grad-card::after {
+    filter: blur(1.5rem);
+    /* glow layer: half the ring opacity */
+    opacity: calc(var(--ring-opacity) * 0.28);
+  }
+
+
+  /* Houdini custom property — required for Framer Motion to animate --x */
+  @property --x {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: false;
+  }
+
+  /* Diagonal amber shimmer mask on button text */
+  .shiny-text {
+    mask-image: linear-gradient(
+      -75deg,
+      white calc(var(--x) + 20%),
+      transparent calc(var(--x) + 30%),
+      white calc(var(--x) + 100%)
+    );
+    -webkit-mask-image: linear-gradient(
+      -75deg,
+      white calc(var(--x) + 20%),
+      transparent calc(var(--x) + 30%),
+      white calc(var(--x) + 100%)
+    );
+  }
+
+  /* Diagonal amber shimmer overlay on the border ring */
+  .shiny-overlay {
+    background-image: linear-gradient(
+      -75deg,
+      rgba(255, 213, 128, 0.08) calc(var(--x) + 20%),
+      rgba(255, 213, 128, 0.45) calc(var(--x) + 25%),
+      rgba(255, 213, 128, 0.08) calc(var(--x) + 100%)
+    );
+    mask:
+      linear-gradient(black, black) content-box,
+      linear-gradient(black, black);
+    -webkit-mask:
+      linear-gradient(black, black) content-box,
+      linear-gradient(black, black);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+
+  .amber-cta:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 0 1px rgba(245,166,35,0.80),
+      inset 0 1px 0 rgba(255,213,128,0.18),
+      0 18px 50px -6px rgba(0,0,0,0.80);
+  }
+
+  .amber-cta:hover::after {
+    filter: blur(30px);
+    bottom: -150%;
+    opacity: 1;
+  }
+
+  /* On amber CTA fills, swap to a dark inner ring so the focus stays visible */
+  .amber-cta:focus-visible {
+    outline-color: #0A0B0F;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #FFB347;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .nav-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.15em] text-text-secondary;
+  }
+
+  .section-number {
+    @apply font-mono text-[11px] tracking-[0.1em] text-amber-text;
+  }
+
+  .card-base {
+    @apply bg-bg-surface border border-white/[0.06] rounded-lg shadow-card;
+    background: linear-gradient(135deg, #1A1D26 0%, #111318 60%);
+  }
+
+  .amber-rule {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-amber-base/40 to-transparent;
+  }
+
+  .spotlight-bg {
+    background: radial-gradient(ellipse 70% 50% at 50% -5%, rgba(212,134,10,0.18) 0%, transparent 70%);
+  }
+
+  .cursor-light {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(circle 500px at var(--mx, 50%) var(--my, 50%), rgba(212,134,10,0.06), transparent 80%);
+    transition: background 0.1s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-light { display: none; }
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #D4860A, #F5A623, #FFD580);
+    z-index: 1000;
+    transform-origin: left;
+    box-shadow: 0 0 8px rgba(212,134,10,0.6);
+  }
+
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    @apply not-sr-only fixed top-3 left-3 z-[100] px-4 py-2 bg-amber-text text-bg-deep font-mono text-xs rounded-sm;
+    outline: 2px solid #0A0B0F;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .grid-bg {
+    background-image: linear-gradient(rgba(240,242,247,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(240,242,247,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+}
