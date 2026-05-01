@@ -1,7 +1,7 @@
 export const data = {
   name: 'Jimmy Chamberlin',
   title: 'Operations Architect',
-  tagline: 'Operations that survive leadership changes. Built across four industries. Systems that run without me.',
+  tagline: "I don't just advise on operations. I build them to last. Across logistics, restaurants, legal, and IT.",
   subtitle: 'Operations Architect · 16 Years Across 4 Industries',
   heroBio: 'I work with business owners and operators scaling faster than their systems can handle — logistics companies, manufacturers, law firms, and IT-dependent operations. I build the infrastructure that turns fragmented, dysfunctional processes into systems that actually hold — reliably, at scale, through leadership changes. Now applying AI tools where they cut real friction: document processing, compliance tracking, decision support. Same architectural discipline — modern tooling.',
   available: false,
