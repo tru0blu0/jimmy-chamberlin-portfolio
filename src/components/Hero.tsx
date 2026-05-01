@@ -103,7 +103,7 @@ export default function Hero() {
 
         {/* ── Descriptor — DM Sans, understated ── */}
         <motion.p
-          className="mt-6 font-body font-light text-text-muted text-sm tracking-wide max-w-[42ch]"
+          className="mt-6 font-body font-light text-text-secondary text-sm tracking-wide max-w-[42ch]"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: descDelay, ease: cinematicEase }}
@@ -128,7 +128,7 @@ export default function Hero() {
 
           <a
             href="#contact"
-            className="font-mono text-[10px] tracking-[0.15em] uppercase text-text-muted hover:text-text-secondary transition-colors duration-300"
+            className="font-mono text-[11px] tracking-[0.15em] uppercase text-text-secondary hover:text-text-primary transition-colors duration-300"
           >
             {data.heroSecondary}
           </a>
@@ -141,14 +141,14 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.0, delay: expDelay, ease: cinematicEase }}
         >
-          <div className="font-mono text-[9px] tracking-[0.22em] uppercase text-text-faint mb-4">
+          <div className="font-mono text-[11px] tracking-[0.22em] uppercase text-text-secondary mb-4">
             Trusted across
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {data.experience.map((exp) => (
               <span
                 key={exp.domain}
-                className="font-['Cormorant_Garamond',_serif] text-text-faint text-sm tracking-wide hover:text-text-secondary transition-colors duration-300 cursor-default"
+                className="font-['Cormorant_Garamond',_serif] text-text-secondary text-sm tracking-wide hover:text-text-primary transition-colors duration-300 cursor-default"
               >
                 {exp.domain}
               </span>
