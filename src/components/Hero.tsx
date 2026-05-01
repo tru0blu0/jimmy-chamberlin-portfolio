@@ -51,7 +51,7 @@ export default function Hero() {
         style={{ y, opacity, willChange: 'transform, opacity' }}
       >
         {/* ── Headline — Cormorant Garamond, cinematic line breaks ── */}
-        <h1 className="font-['Cormorant_Garamond',_serif] font-bold text-text-primary leading-[1.13] max-w-[20ch]"
+        <h1 className="font-['Cormorant_Garamond',_serif] font-bold text-3d text-depth leading-[1.13] max-w-[20ch]"
           style={{ fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', letterSpacing: '-0.005em' }}
         >
           {data.heroLines.map((line, i) => (
@@ -79,7 +79,7 @@ export default function Hero() {
                 {/* Highlight the second line's accent word */}
                 {i === 1 ? (
                   <>
-                    <span className="text-amber-glow">shouldn&rsquo;t</span>
+                    <span className="text-3d-amber">shouldn&rsquo;t</span>
                     {' depend'}
                   </>
                 ) : (
