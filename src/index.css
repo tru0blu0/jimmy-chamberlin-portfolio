@@ -295,8 +295,8 @@
     background: linear-gradient(
       180deg,
       #F4F6FA 0%,
-      #CDD3E0 45%,
-      #8892A4 100%
+      #D4DAE6 45%,
+      #A8B2C0 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -335,7 +335,7 @@
   /* Subtle text depth — layered shadows for raised effect */
   .text-depth {
     text-shadow:
-      0 1px 0 rgba(255,255,255,0.06),
-      0 -1px 2px rgba(0,0,0,0.25);
+      0 1px 0 rgba(255,255,255,0.08),
+      0 -1px 1px rgba(0,0,0,0.15);
   }
 }
