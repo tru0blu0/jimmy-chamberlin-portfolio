@@ -3,6 +3,11 @@ export const data = {
   title: 'Operations Architect',
   tagline: "Your operations shouldn't depend on you being there.",
   taglineHighlight: "shouldn't",
+  heroLines: [
+    "Your operations",
+    "shouldn't depend",
+    "on you being there.",
+  ],
   taglineSub: "I build the systems that hold — through growth, leadership changes, and Tuesday.",
   heroBio: '16 years across logistics, legal, restaurants, and IT. Every engagement leaves behind documented SOPs, trained teams, and self-sustaining infrastructure.',
   heroCta: 'SEE THE RESULTS',
